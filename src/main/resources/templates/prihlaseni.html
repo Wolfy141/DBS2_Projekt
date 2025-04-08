@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport Prihlaseni</title>
+    <link rel="stylesheet" th:href="@{/styles/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/styles/regLog.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img th:src="@{/pictures/logo.png}" alt="logo">
+        <nav>
+            <ul class="navbar-list">
+                <li><a class = "nav-a" th:href="@{/index}">INFORMACE</a></li>
+                <li><a class = "nav-a" th:href="@{/vybaveni}">VYBAVENÍ</a></li>
+                <li><a class = "nav-a" th:href="@{/pujcovna}">PŮJČOVNA</a></li>
+                <li><a class = "nav-a" th:href="@{/kontakt}">KONTAKT</a></li>
+            </ul>
+        </nav>
+        <span><a th:href="@{/profil}">PROFIL</a></span>
+    </header>
+    <main id="login_main">
+        <section id="registration">
+            <form>
+                <h1>Registrace</h1>
+
+                <div class="regDiv">
+                    <label for="r-uName">Křestní jméno:</label>
+                    <input id="r-uName" name="ruName" type="text" placeholder="například Jan">
+                </div>
+                <div class="regDiv">
+                    <label for="r-uSName">Příjmení:</label>
+                    <input id="r-uSName" name="uName" type="text" placeholder="například Novák">
+                </div>
+                <div class="regDiv">
+                    <label for="r-eAdress">E-mail:</label>
+                    <input id="r-eAdress" name="uName" type="text" placeholder="vase@adresa.cz">
+                </div>
+                <div class="regDiv">
+                    <label for="regPass">Heslo:</label>
+                    <input id="regPass" name="uName" type="password" placeholder="Vaše super-tajné heslo">
+                </div>
+                <br>
+                <input class="sButton" id="r" type="submit" value="Registrovat">
+            </form>
+            <div class="regLog-options">
+                <span>Máte už u nás účet?</span>
+                <span> Přihlásit se</span>
+            </div>
+        </section>
+        <section id="login">
+
+            <form>
+                <h1>Přihlášení</h1>
+                <div class="logDiv">
+                    <label for="logUEmail">E-mail</label>
+                    <input id="logUEmail" name="uEmail" type="text" placeholder="vase@adresa.cz">
+                </div>
+                <div class="logDiv">
+                    <label for="logPass">Heslo</label>
+                    <input id="logPass" name="uName" type="password" placeholder="Vaše super-tajné heslo">
+                </div>
+                <br>
+                <input class="sButton" id="l" type="submit" value="Přihlásit se">
+            </form>
+            <div class= regLog-options>
+                <span>Zapomenuté heslo</span>
+                <span>Registrace</span>
+            </div>
+        </section>
+    </main>
+    <footer>
+        Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
+        <br>
+        Kontaktní email: musilal1@uhk.cz
+    </footer>
+</body>
+</html>

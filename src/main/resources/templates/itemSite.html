@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport - {nazevVybaveni}</title>
+    <link rel="stylesheet" th:href="@{/styles/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/styles/ItemStyle.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <img th:src="@{/pictures/logo.png}" alt="logo">
+    <nav>
+        <ul class="navbar-list">
+            <li><a class = "nav-a" th:href="@{/index}">INFORMACE</a></li>
+            <li><a class = "nav-a" th:href="@{/vybaveni}">VYBAVENÍ</a></li>
+            <li><a class = "nav-a" th:href="@{/pujcovna}">PŮJČOVNA</a></li>
+            <li><a class = "nav-a" th:href="@{/kontakt}">KONTAKT</a></li>
+        </ul>
+    </nav>
+    <span><a th:href="@{/profil}">PROFIL</a></span>
+</header>
+<main id="login_main">
+    <template>
+        <div class = itemCard>
+            <img id="itemImg" th:src="@{/pictures/lhelmet.jpg}" alt="helmet">
+            <div class="ItemInfo">
+                <span id="item-name"><h2>{@Jméno Itemu}</h2></span>
+                <span id="phisical-condition"> {@Fyzický stav}</span>
+                <span id="price"> {@Cena}</span>
+                <span id="deposit"> {@Záloha}</span>
+                <span id="descr"><p>{@Popis}</p></span>
+            </div>
+        </div>
+    </template>
+</main>
+<footer>
+    Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
+    <br>
+    Kontaktní email: musilal1@uhk.cz
+</footer>
+</body>
+</html>

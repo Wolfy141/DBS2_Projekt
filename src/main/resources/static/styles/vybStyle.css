@@ -1,0 +1,99 @@
+.frst-pan-vyb{
+    padding: 20px;
+    height: 40vh;
+    background-image:url(../pictures/mountains-7846880_1920.jpg);
+    background-repeat: no-repeat;
+    background-position-y:-180px;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #F7FFF7;
+}
+.frst-pan-vyb h1{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.eq-category{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*EQUIPMENT*/
+.eq-category-list{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.eq-category-list li{
+    list-style: none;
+    border-bottom: 1px #FFE66D solid;
+    border-radius: 15px;
+    background-color: #2F3061;
+    color: #FFE66D;
+    width: 15em;
+    height: 15em;
+    padding: 1em;
+
+    text-align: center;
+    align-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+#eq1{background-image:url(../pictures/man-skies.jpg); background-position-x:-80px;}
+#eq2{background-image:url(../pictures/snowboard-227541_1280.jpg); background-position-x:-20px;}
+#eq3{background-image:url(../pictures/cross-country-skiing-3020748_1280.jpg); background-position-x:-20px;}
+#eq4{background-image:url(../pictures/helmet.jpg); background-position-x:-20px;}
+#eq5{background-image:url(../pictures/ski-boot-257375_1280.jpg); background-position-x:-20px;}
+
+#itemButton{
+    margin: 20px 0px;
+    width: 13em;
+}
+
+#item-container{
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFE66D;
+}
+
+
+
+#item-table-Container{
+    max-height: 350px;
+    overflow: scroll;
+    margin: 1em;
+
+}
+#item-table-Container > table{
+    width: 100%;
+}
+
+#item-table-Container table{
+    background-color:#F7FFF7;
+    border-collapse: collapse;
+    border: 1px solid #343434;
+}
+th{
+    position: sticky;
+    top: 0;
+    background-color: #2F3061;
+    color: #f7fff7;
+}
+td, th{
+    border: 1px solid #343434;
+    padding: 8px;
+}
+
+#item-container button{
+    width: 15em;
+}
+
+

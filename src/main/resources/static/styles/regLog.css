@@ -1,0 +1,119 @@
+*{box-sizing: border-box;}
+#login_main{
+    background-image: url("../pictures/pozadi.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#registration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+form{
+    padding: 25px;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    display: flex;
+    flex-direction: column;
+    width:30%;
+    border-radius: 15px;
+    font-size: 1em;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+#registration form{
+    color: #F7FFF7;
+    background-color: #2F3061;
+}
+.regDiv{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;}
+.regDiv input{
+    border:solid 2px lightgrey;
+    border-bottom: solid 2px #FFE66D;
+}
+.regDiv input:focus{
+    border:none;
+    outline:solid 2px #FFE66D;
+}
+.regDiv input:hover{
+
+    border-left:solid 2px #FFE66D;
+    border-right:solid 2px #FFE66D;
+}
+
+.logDiv{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;}
+.logDiv input{
+    border:solid 2px lightgrey;
+    border-bottom: solid 2px #2F3061;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+.logDiv input:hover{
+
+    border-left:solid 2px #2F3061;
+    border-right:solid 2px #2F3061;
+}
+.logDiv input:focus{
+    border:none;
+    outline:solid 2px #2F3061;
+}
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login form{
+    color: #2F3061;
+    border:solid 1px #2F3061;
+    background-color: #F7FFF7;
+}
+input{
+    border-radius: 8px;
+    border: none;
+    background-color: #f7fff7;
+    height: 3em;
+}
+.sButton{
+    border-radius: 15px;
+    color: #343434;
+    cursor: pointer;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    will-change: transform;
+    width: 8em;
+    align-self: center;
+}
+
+.sButton#l{
+    border: 2px solid #2F3061;
+}
+.sButton#r{
+    border: 2px solid #343434;
+    background-color: #FFE66D;
+}
+.sButton:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+.sButton#l:hover {
+    color: #fff;
+    background-color: #2F3061;
+}
+.sButton#r:hover {
+    color: #FFE66D;
+    background-color: #343434;
+}
+
+.regLog-options{
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+}

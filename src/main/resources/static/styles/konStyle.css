@@ -1,0 +1,70 @@
+/*stránka kontaktu*/
+
+#kont-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    max-width: 80%;
+    min-width: fit-content;
+}
+
+#kont-cont-tables{
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: auto auto;
+}
+#kont-cont-tables div
+{
+    border-width: 0px 1px 3px 1px;  /* top | right | bottom | left */
+    border-style: none solid solid solid;
+    border-color: #2F3061;
+    border-radius: 15px;
+    margin: 1px;
+    height: fit-content;
+}
+
+#oteviraciDoba{
+    grid-area: 2/1/3/4;
+    background-color: #343434;
+    color: #FFE66D;
+    border-radius: 15px;
+}
+
+.kontakty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kontakty img{
+    border-radius: 15px;
+    max-width: 400px;
+
+    box-shadow: 30px -30px 0px #FFE66D;
+}
+
+.frst-panel-kon{
+    padding: 20px;
+    height: 40vh;
+    background-image:url(../pictures/wint3.jpg);
+    background-repeat: no-repeat;
+    background-position-y:-180px;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #F7FFF7;
+}
+.frst-panel-kon h1{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
