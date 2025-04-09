@@ -1,0 +1,25 @@
+name: Sync to GitLab
+
+on:
+  push:
+    branches:
+      - main  # nebo jiná hlavní větev
+
+jobs:
+  push-to-gitlab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Push to GitLab
+        env:
+          GITLAB_USERNAME: Wolfy141
+          GITLAB_REPO: git@gitlab.com:Wolfy141/dbs2_projekt.git
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "GitHub Sync Bot"
+          
+          git remote add gitlab https://${GITLAB_USERNAME}:${GITLAB_TOKEN}@gitlab.com/${GITLAB_USERNAME}/your-repo.git
+          git push --mirror gitlab
