@@ -49,97 +49,30 @@
   <div id="item-container">
       <h2>Seznam vybavení</h2>
       <div id="item-table-Container">
-        <table>
-            <tr>
-                <th>Název</th>
-                <th>Kategorie</th>
-                <th>Fyzický stav</th>
-                <th>Popis</th>
-                <th>Cena</th>
-                <th>Záloha</th>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
-            <tr>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-                <td>dynamicky JS</td>
-            </tr>
+        
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Název</th>
+            <th>Kategorie</th>
+            <th>Fyzický stav</th>
+            <th>Popis</th>
+            <th>Cena</th>
+            <th>Záloha</th>
+        </tr>
+    </thead>
+    <tbody th:each="item : ${items}">
+        <tr>
+            <td th:text="${item.nazev}">Název</td>
+            <td th:text="${item.kategorie.nazev}">Kategorie</td>
+            <td th:text="${item.stav.popis}">Stav</td>
+            <td th:text="${item.popis}">Popis</td>
+            <td th:text="${item.cena}">Cena</td>
+            <td th:text="${item.zaloha}">Záloha</td>
+        </tr>
+    </tbody>
+</table>
 
-        </table>
       </div>
       <button id ="reservationbutton">Zažádat o rezervaci</button>
   </div>
