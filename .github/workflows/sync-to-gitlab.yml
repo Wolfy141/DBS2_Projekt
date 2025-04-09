@@ -3,7 +3,7 @@ name: Sync to GitLab
 on:
   push:
     branches:
-      - main  # spustí se při pushi na main
+      - main  # spustí se při pushi na main, snad
 
 jobs:
   push-to-gitlab:
