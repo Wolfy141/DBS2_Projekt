@@ -1,0 +1,29 @@
+Docker
+Thymeleaf
+Bootstrap
+Webflow
+Springboot
+MavenDB
+HeidiSQL
+
+----
+index
+vybaveni
+pujcovna
+kontakt
+profil
+prihlaseni
+
+____
+
+./mvnw clean package
+docker build -t zimpujcovna .
+docker run --name zimpujcovna -p 8080:8080 zimpujcovna .
+docker ps (uvidim vsechny dockery ktere bezi)
+docker rm zimpujcovna (po predelani buildu, nebo dat verzi viz zimpujcovna_v2) 
+
+
+SQL: Pro povoleni z pripojeni z venci
+CREATE USER 'root'@'%' IDENTIFIED BY 'heslo';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
