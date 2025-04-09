@@ -23,4 +23,5 @@ jobs:
           git config --global user.name "GitHub Sync Bot"
 
           git remote add gitlab https://${GITLAB_USERNAME}:${GITLAB_TOKEN}@gitlab.com/${GITLAB_USERNAME}/dbs2_projekt.git
-          git push gitlab main --force-with-lease
+          git fetch origin --unshallow
+          git push --force --mirror gitlab
