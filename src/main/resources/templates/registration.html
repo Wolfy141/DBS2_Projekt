@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"  th:href="@{/temporary.css}">
+</head>
+<body>
+<form method="post" th:action="@{/register}" th:object="${customer}">
+    <input type="hidden" th:name="id" th:value="${id}" />
+    <input th:field="*{firstName}" placeholder="First Name"/>
+    <input th:field="*{lastName}" placeholder="Last Name"/>
+    <input th:field="*{email}" placeholder="Email"/>
+    <input th:field="*{phone}" placeholder="Phone"/>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>
