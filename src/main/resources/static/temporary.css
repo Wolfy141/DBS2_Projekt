@@ -17,3 +17,8 @@ a:hover {
 td {
     margin-right: 10px;
 }
+
+form input {
+    margin: 4px;
+    height: 20px;
+}

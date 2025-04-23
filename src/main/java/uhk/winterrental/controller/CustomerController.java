@@ -14,6 +14,10 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @GetMapping(value = "/login")
+    public String login(Model model) {
+        return "login";
+    }
     @GetMapping(value = "/register")
     public String create1(Model model) {
         Customer customer = new Customer();

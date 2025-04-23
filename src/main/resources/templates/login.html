@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet"  th:href="@{/temporary.css}">
+</head>
+<body style="width: 98vw; height: 90vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+<h2>Přihlášení</h2>
+<form method="post" style="display: flex; flex-direction: column">
+  <input placeholder="email"/>
+  <input placeholder="password"/>
+  <input type="submit" value="Přihlásit se"/>
+</form>
+<div style="margin-top: 10px">
+  <span>Nemáte účet?</span>
+  <a style="margin: 0" role="button" th:href="@{/register}">Vytvořit účet</a>
+</div>
+</body>
+</html>

@@ -30,6 +30,8 @@ public class Customer {
     @Column(length = 13)
     private String phone;
 
+    private String password;
+
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Rental> rentals = new HashSet<>();
 
