@@ -1,0 +1,102 @@
+.frst-panel {
+    padding: 20px;
+    height: 60vh;
+    background-image: url(../pictures/snowboard2.jpg);
+    background-repeat: no-repeat;
+    background-position-y: -180px;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #F7FFF7;
+}
+.showof{
+    display: flex;
+    width: 80%;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1.5em;
+}
+.showof#s2{
+    background-color: #6CA6C1;
+    color: #f7fff7;
+}
+.sh-content{
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+}
+.sh-photo{
+    display: flex;
+    padding-bottom:30px;
+    padding-top: 30px ;
+    max-width: 50%;
+}
+.sh-text{
+align-content: center;
+    padding: 2em;
+    max-width: 50%;
+}
+#img1, #img2, #img3, #img4{
+    width: 50%;
+    border-radius:15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+#img1{
+position: relative;
+    top: 15%;
+    left: 10%;
+    z-index: 0;
+}
+#img2{
+    position: relative;
+    top: -15%;
+    right:0;
+    z-index:1;
+}
+#img3{
+    position: relative;
+    top: -15%;
+    z-index: 0;
+}
+#img4{
+    position: relative;
+    top: 15%;
+    left: -8%;
+    z-index:1;
+}
+hr{
+    width:70%;
+    color: #343434;
+    justify-self: center;
+}
+
+@media screen and (max-width: 768px) {
+    .frst-panel {
+        height: auto;
+        background-position-y: center;
+        background-attachment: scroll; /* fixed dělá bordel na mobilech */
+        padding: 10px;
+    }
+
+    .sh-content {
+        flex-direction: column;
+        margin: 20px 10px;
+    }
+
+    .sh-photo,
+    .sh-text {
+        max-width: 100%;
+        padding: 1em 0;
+    }
+
+    #img1, #img2, #img3, #img4 {
+        width: 100%;
+        position: static;
+        margin-bottom: 15px;
+    }
+
+    hr {
+        width: 90%;
+    }
+}

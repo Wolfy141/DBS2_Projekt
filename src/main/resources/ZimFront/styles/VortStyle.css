@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+*{
+box-sizing: border-box;
+    /*border: solid black 1px;*/
+margin: 0;
+    font-family: 'Oxygen', sans-serif;
+    max-font-size: 18px;
+}
+
+body{
+    background-color: #F7FFF7;
+    min-height: 100vh;
+
+}
+
+h1{
+    font-size: 2.5rem;
+}
+h2{
+    font-size: 1.75rem;
+}
+h3{
+    font-size: 1.5rem;
+}
+
+
+
+header{
+    background-color: #6CA6C1;
+    width: 100%;
+    color:white;
+    padding: 0.25vw 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+.navbar-list{
+    display: flex;
+   column-gap: 3em;
+}
+.navbar-list li{
+    list-style: none;
+    display: inline;
+    color: #343434;
+    border-bottom:   3px solid transparent;
+}
+.navbar-list li:hover{
+    border-bottom:   3px solid #FFE66D;
+    transition: all 500ms cubic-bezier(.23, 1, 0.32, 1);
+}
+.nav-a{
+    text-decoration: none;
+    color:inherit;
+    font-weight: bold;
+}
+
+@media (max-width: 768px){
+
+    header{
+        flex-direction: column;
+    }
+    nav{
+        background-color: #2F3061;
+        width: 100%;
+    }
+    .navbar-list{
+        }
+    .navbar-list li{
+        color: #f7fff7;
+        width: fit-content;
+    }
+}
+#Bsing{
+    position: absolute;
+    top: 3%;
+    right: 1.5%;
+    background-color: #FFE66D;
+    border: none;
+}
+#Bsing:hover{
+    border-color: #FFE66D;
+    color: #FFE66D;
+    background-color:#2F3061;
+}
+button{
+    background-color: transparent;
+    border: 2px solid #343434;
+    border-radius: 15px;
+    color: #343434;
+    cursor: pointer;
+    padding: 16px 24px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    will-change: transform;
+    align-self: center;
+}
+#profile-link{
+display: flex;
+    align-content: center;
+    gap: 0.5em;
+}
+#profile-link a{
+    font-weight: bold;
+    color: #FFE66D;
+    text-decoration: none;
+    ;
+}
+#profile-link a:hover{
+    color: #343434;
+}
+#per-icon{width: 1.5em;}
+    button:hover {
+        color: #fff;
+        background-color: #343434;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+    }
+body{
+    background-color: #F7FFF7;
+    height: 100vh;
+
+}
+dialog{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+footer {
+    background-color: #343434;
+    color:#FFE66D;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 10em;
+    padding: 1em;
+}
+/*
+color pellet
+žlutá:
+    color: #FFE66D;
+modrá:
+    color: #2F3061;
+světle modrá:
+    color: #6CA6C1;
+bílá:
+    color: #F7FFF7;
+šedá:
+    color: #343434;
+*/
+
+
+@media (max-width: 768px) {
+    header{
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar-list{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.1em;
+        padding: 0;
+        margin: 0 auto;
+        list-style: none;
+    }
+
+    /* Změna barvy textu a přizpůsobení výběru při hover pro li na mobilu */
+    .navbar-list li{
+        color: #f7fff7;
+        width: fit-content;
+        padding: 1em;
+    }
+
+    .navbar-list li:hover{
+        border-bottom: 3px solid #FFE66D;
+    }
+
+    /* Tlačítka v hlavičce */
+    #Bsing{
+        position: static;
+        margin-top: 1em;
+        background-color: #FFE66D;
+        border: none;
+    }
+
+    #Bsing:hover{
+        background-color: #2F3061;
+        color: #FFE66D;
+    }
+
+    /* Tlačítka na stránce (zvětšení pro mobilní použití) */
+    button {
+        padding: 12px 20px;
+        font-size: 1.1em;
+        width: 100%;
+    }
+
+    button:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+    }
+
+    /* Profilové odkazy */
+    #profile a{
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #FFE66D;
+        text-decoration: none;
+    }
+
+    #profile a:hover{
+        color: #343434;
+    }
+
+    /* Přizpůsobení footeru pro mobilní zobrazení */
+    footer {
+        min-height: 12em;
+        text-align: center;
+        padding: 2em 0;
+    }
+
+    footer p {
+        font-size: 1em;
+    }
+}

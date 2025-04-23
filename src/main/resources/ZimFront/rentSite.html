@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport - {nazevVybaveni}</title>
+    <link rel="stylesheet" href="styles/VortStyle.css">
+    <link rel="stylesheet" href="styles/ItemStyle.css">
+
+</head>
+<body onload="finishHeader()">
+<header>
+    <img src="pictures/logo.png" alt="logo">
+    <nav>
+        <ul class="navbar-list">
+            <li><a class = "nav-a" href="index.html">INFORMACE</a></li>
+            <li><a class = "nav-a" href="vybaveni.html">VYBAVENÍ</a></li>
+            <li><a class = "nav-a" href="pujcovna.html">PŮJČOVNA</a></li>
+            <li><a class = "nav-a" href="kontakt.html">KONTAKT</a></li>
+        </ul>
+    </nav>
+    <div id="bSingd">
+        <a href="prihlaseni.html"><button id="Bsing" > Přihlásit se</button></a>
+    </div>
+    <div id="profile-link">
+        <img src="pictures/c-ico.svg" id="per-icon">
+        <a href="profil.html">@Jméno</a>
+    </div>
+</header>
+<main>
+    <h2>Vypujcka {cislo}</h2>
+    <span> datum od: {datum}</span>
+    <span>datum do: {datum}</span>
+    <div>
+    <span>Vybavení:</span>
+    <ul>
+        <li>
+            item
+        </li>
+        <li>
+            item
+        </li>
+        <li>
+            item
+        </li>
+    </ul>
+    </div>
+    <span>Založena: {jmeno zamestnance}</span>
+    <span>Zřizena pro: {jmeno zakaznika}</span>
+
+</main>
+<footer>
+    Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
+    <br>
+    Kontaktní email: musilal1@uhk.cz
+</footer>
+</body>
+<script src="scripts/VortScript.js"></script>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="45.577354mm"
+   height="44.083019mm"
+   viewBox="0 0 45.577354 44.083019"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:export-bgcolor="#ffffff00" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-80.320764,-75.090574)">
+    <g
+       id="g2">
+      <ellipse
+         style="fill:#6ca6c1;fill-opacity:1;stroke-width:0.502999;stroke-opacity:0.282178;paint-order:markers stroke fill"
+         id="path1"
+         cx="103.10944"
+         cy="97.13208"
+         rx="22.788679"
+         ry="22.04151" />
+      <g
+         id="g1"
+         transform="matrix(0.78016602,0.10279911,-0.10279911,0.78016602,55.964574,-51.8293)">
+        <rect
+           style="fill:#2f3061;fill-opacity:1;stroke-width:0.416735;stroke-opacity:0.282178;paint-order:markers stroke fill"
+           id="rect1"
+           width="29.48988"
+           height="4.1094341"
+           x="-118.66319"
+           y="168.93378"
+           ry="0.62715745"
+           transform="rotate(-57.69828)" />
+        <rect
+           style="fill:#2f3061;fill-opacity:1;stroke-width:0.312153;stroke-opacity:0.282178;paint-order:markers stroke fill"
+           id="rect1-9"
+           width="16.545822"
+           height="4.1094341"
+           x="156.23982"
+           y="114.74298"
+           ry="0.62715745"
+           transform="rotate(32.286214)" />
+      </g>
+    </g>
+  </g>
+</svg>
