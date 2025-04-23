@@ -15,8 +15,13 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @GetMapping(value = "/login")
-    public String login(Model model) {
+    public String loginPage() {
         return "login";
+    }
+    @GetMapping(value = "/loginUser")
+    public String loginUser() {
+        //TODO: implement login
+        return "loginUser";
     }
     @GetMapping(value = "/register")
     public String create1(Model model) {
