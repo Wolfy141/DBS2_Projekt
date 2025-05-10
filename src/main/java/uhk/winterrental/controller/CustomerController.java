@@ -4,21 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import uhk.winterrental.entity.Customer;
-import uhk.winterrental.repository.CustomerRepository;
+import uhk.winterrental.service.CustomerService;
 
 @Controller
 public class CustomerController {
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerService customerService;
 
-    @GetMapping(value = "/login")
-    public String loginPage(Model model) {
-        Customer customer = new Customer();
+    @GetMapping(value = "/profile/{email}")
+    public String profilePage(@PathVariable String email, Model model) {
+        Customer customer = customerService.findCustomerByEmail(email);
         model.addAttribute("customer", customer);
-        return "login";
+        return "profile";
     }
 
     @GetMapping(value = "/register")
@@ -29,26 +30,9 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/register")
-    public String register(Model model, Customer customer) {
-        model.addAttribute("customer", customerRepository.save(customer));
-        return "redirect:/";
-    }
-
-    @PostMapping(value = "/login")
-    public String login(Model model, Customer customer) {
-        for (Customer c : customerRepository.findAll()) {
-            if (c.getEmail().equals(customer.getEmail()) && c.getPassword().equals(customer.getPassword())) {
-                model.addAttribute("customer", c);
-                return "redirect:/";
-            }
-        }
+    public String register(@ModelAttribute Customer customer) {
+        customerService.save(customer);
         return "redirect:/login";
     }
-
-    /*@GetMapping(value = "/edit/{id}")
-    public String editForm(@PathVariable Long id, Model model) {
-        model.addAttribute("customer", customerRepository.findById(id).orElseThrow());
-        return "edit-profile";
-    }*/
 
 }

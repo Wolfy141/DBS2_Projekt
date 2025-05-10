@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +19,12 @@
                 <li><a class = "nav-a" th:href="@{/contact}">KONTAKT</a></li>
             </ul>
         </nav>
-        <div id="bSingd">
+        <div sec:authorize="isAnonymous()" id="bSingd">
             <a th:href="@{/login}"><button id="Bsing">Přihlásit se</button></a>
+        </div>
+        <div sec:authorize="isAuthenticated()" id="profile-link">
+            <img alt="profile-icon" th:src="@{pictures/c-ico.svg}" id="per-icon">
+            <a th:href="@{'/profile/' + ${#authentication.name}}">Profil</a>
         </div>
     </header>
 

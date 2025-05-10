@@ -26,19 +26,18 @@
     <main id="login_main">
         <section id="login">
 
-            <form method="post" th:action="@{/login}" th:object="${customer}">
-                <h1>Přihlášení</h1>
-                <input type="hidden" th:field="*{id}">
-                <div class="logDiv">
-                    <label for="logUEmail">E-mail</label>
-                    <input id="logUEmail" name="uEmail" type="text" th:field="*{email}" placeholder="vaše@adresa.cz">
+            <form th:action="@{/login}" method="post">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username"/>
                 </div>
-                <div class="logDiv">
-                    <label for="logPass">Heslo</label>
-                    <input id="logPass" name="uName" type="password" th:field="*{password}" placeholder="Vaše super-tajné heslo">
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password"/>
                 </div>
-                <br>
-                <input class="sButton" id="l" type="submit" value="Přihlásit se">
+                <div>
+                    <button type="submit">Login</button>
+                </div>
             </form>
             <div class= "regLog-options">
                 <a th:href="@{/register}">Zaregistrujte se zde</a>

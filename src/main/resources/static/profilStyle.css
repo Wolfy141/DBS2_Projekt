@@ -1,5 +1,6 @@
 body{
     background-image: url(pictures/wint3.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -8,14 +9,19 @@ h1{
     color: white;
     padding: 0.5em;
 }
+footer{
+    position: absolute;
+    bottom: 0;
+}
 
 .profile-cont{
     display: grid;
     grid-template-columns:repeat(2, 1fr);
     /*background-color: #FFE66D;*/
-    margin: 0em 1em 1em 1em;
+    margin: 0 1em 1em 1em;
     border-radius: 15px;
-    padding: 1em;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 .profile-cont#cust-prftmp{
     grid-template-rows: auto 20em;

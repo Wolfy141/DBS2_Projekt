@@ -27,7 +27,7 @@ public class Customer {
     @Column(name = "last_name", nullable = false, length = 24)
     private String lastName;
 
-    @Column(length = 13)
+    @Column(length = 20)
     private String phone;
 
     private String password;
