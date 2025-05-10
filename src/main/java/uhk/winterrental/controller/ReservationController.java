@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import uhk.winterrental.entity.Customer;
 import uhk.winterrental.entity.Equipment;
 import uhk.winterrental.entity.Reservation;
 import uhk.winterrental.repository.CustomerRepository;
@@ -48,7 +47,7 @@ public class ReservationController {
             }
         }
         model.addAttribute("reservations", reservations);
-        return "reservations";
+        return "reservationsOLD";
     }
 
     @PostMapping("/cancel-reservation")

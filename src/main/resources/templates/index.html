@@ -1,49 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Home</title>
-  <link rel="stylesheet"  th:href="@{/temporary.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport</title>
+    <link rel="stylesheet" th:href="@{/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/indexStyle.css}">
+
 </head>
-<body>
+<body onload="finishHeader()">
+    <header>
+       <img th:src="@{/pictures/logo.png}" alt="logo">
+        <nav>
+            <ul class="navbar-list">
+                <li><a class = "nav-a" th:href="@{/}">INFORMACE</a></li>
+                <li><a class = "nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+                <li><a class = "nav-a" href="pujcovna.html">PŮJČOVNA</a></li>
+                <li><a class = "nav-a" href="kontakt.html">KONTAKT</a></li>
+            </ul>
+        </nav>
+        <div id="bSingd">
+            <a role="button" th:href="@{/login}">Přihlásit se</a>
+        </div>
+        <div id="profile-link">
+            <img th:src="@{/pictures/c-ico.svg}" id="per-icon">
+            <a href="../ZimFront/profil.html">@Jméno</a>
+        </div>
+    </header>
 
-<a role="button" th:href="@{/login}">Přihlásit se</a>
-<a role="button" th:href="@{/reservations/1}">Moje rezervované vybavení</a>
-<a role="button" th:href="@{/rentals/1}">Moje vypůjčené vybavení</a>
+    <main>
+        <div class="frst-panel">
+            <p>
+                <h1>Vítejte v ZimSportu!</h1>
+                <h2>Půjčovně zimního sportovního vybavení v Hradci Králové</h2>
+                o tomto obchodě, triady triady, jsme půjčovna
+            </p>
+        </div>
 
-<div>
-  <h2>Kategorie</h2>
-  <ul>
-    <li th:each="c : ${categories}">
-      <a th:href="@{/category/{id}(id=${c.id})}" th:text="${c.name}">Category Name</a>
-    </li>
-    <li><a th:href="@{/}">Všechny</a></li> <!-- Link to show all -->
-  </ul>
-</div>
+       <div class="showof" id="s1">
+           <h2>Nové vybavení!</h2>
+           <div class="sh-content">
+            <div class="sh-text">
+                <h3>Dokoupili jsme vybavení</h3>
+                    od těch nejlepších značek! V naší sekci Vybavení najdete to, co vám bude sedět přímo na míru. Od zboží používaného až po zboží úplně nové.
+            </div>
+            <div class="sh-photo">
+                <img th:src="@{/pictures/ski-boot-257375_1280.jpg}" alt="ski boots" id="img1">
+                <img th:src="@{/pictures/vybaveni.jpg}" alt="helmet and skies" id="img2">
+            </div>
+           </div>
+       </div>
+        <hr>
 
-<table>
-  <thead>
-  <tr>
-    <th scope="col">Název</th>
-    <th scope="col">Skladem</th>
-    <th scope="col">Kategorie</th>
-    <th scope="col">Kondice</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="e : ${equipment}">
-    <td th:text="${e.name}"></td>
-    <td th:text="${e.available} ? 'Skladem' : 'Zarezervováno'"></td>
-    <td th:text="${e.category.name}"></td>
-    <td th:text="${e.condition.name}"></td>
-    <td>
-      <form method="post" th:if="${e.available}" th:action="@{/reserve/{id}(id=${e.id})}">
-        <input type="submit" value="Rezervovat">
-      </form>
-    </td>
-  </tr>
-  </tbody>
-</table>
+        <div class="showof" id="s2">
+            <h2>Na velikosti nezáleží</h2>
+            <div class="sh-content">
+                <div class="sh-photo">
+                    <img th:src="@{/pictures/skiing-6035709_1920.jpg}" alt="girl-skier" id="img3">
+                    <img th:src="@{/pictures/boy-1835416_1920.jpg}" alt="boy-skier" id="img4">
+                </div>
+                <div class="sh-text">
+                    <h3>U nás máme všechny velikosti!</h3>
+                    Sportovní vybavení od těch pro velikány až po ty pro nejmenší.
+                    Nabízíme větší rozsah velikostí než kdy předtím.
+                </div>
+            </div>
+        </div>
+       </div>
+    </main>
 
 </body>
+<footer>
+    Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
+    <br>
+    Kontaktní email: musilal1@uhk.cz
+</footer>
+<script th:src="@{/scripts/VortScript.js}"></script>
 </html>

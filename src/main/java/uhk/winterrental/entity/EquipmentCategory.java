@@ -27,6 +27,9 @@ public class EquipmentCategory {
     @Column(name = "description", length = 255)
     private String description;
 
+    @Column(name = "image_url", length = 255)
+    private String imageUrl;
+
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private Set<Equipment> equipment = new HashSet<>();
 }

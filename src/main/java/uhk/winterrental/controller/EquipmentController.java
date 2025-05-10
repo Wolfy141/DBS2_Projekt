@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import uhk.winterrental.entity.Equipment;
-import uhk.winterrental.entity.EquipmentCategory;
 import uhk.winterrental.repository.CategoryRepository;
 import uhk.winterrental.repository.EquipmentRepository;
 
@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
+@RequestMapping("/equipment")
 public class EquipmentController {
     @Autowired
     private EquipmentRepository equipmentRepository;
@@ -21,11 +22,11 @@ public class EquipmentController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @GetMapping
+    @GetMapping()
     public String listAll(Model model) {
         model.addAttribute("equipment", equipmentRepository.findAll());
         model.addAttribute("categories", categoryRepository.findAll());
-        return "index";
+        return "equipment";
     }
 
     @GetMapping("/category/{id}")
@@ -38,6 +39,6 @@ public class EquipmentController {
 
         model.addAttribute("equipment", filteredEquipment);
         model.addAttribute("categories", categoryRepository.findAll());
-        return "index";
+        return "equipment";
     }
 }

@@ -28,6 +28,9 @@ public class Equipment {
     @JoinColumn(name = "condition_id")
     private EquipmentCondition condition;
 
+    @Column(name = "cost_per_day")
+    private int costPerDay;
+
     private boolean available = false;
 
     @ManyToOne(fetch = FetchType.LAZY)

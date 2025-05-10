@@ -16,18 +16,13 @@ public class CustomerController {
 
     @GetMapping(value = "/login")
     public String loginPage() {
-        return "login";
-    }
-    @GetMapping(value = "/loginUser")
-    public String loginUser() {
-        //TODO: implement login
-        return "loginUser";
+        return "loginOLD";
     }
     @GetMapping(value = "/register")
     public String create1(Model model) {
         Customer customer = new Customer();
         model.addAttribute("customer", customer);
-        return "registration";
+        return "registrationOLD";
     }
 
     @PostMapping(value = "/register")

@@ -1,4 +1,4 @@
-const loggedIN=true;//todo:zjišťovat jestli je přihlášen a podle toho vykreslovat
+const loggedIN=false;//todo:zjišťovat jestli je přihlášen a podle toho vykreslovat
 
 const logBtn=document.getElementById("bSingd");
 const logIco=document.getElementById("profile-link");

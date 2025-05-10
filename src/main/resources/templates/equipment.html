@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport</title>
+    <link rel="stylesheet" th:href="@{/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/vybStyle.css}">
+</head>
+<body onload="finishHeader()">
+<header>
+    <img th:src="@{/pictures/logo.png}" alt="logo">
+    <nav>
+        <ul class="navbar-list">
+            <li><a class = "nav-a" th:href="@{/}">INFORMACE</a></li>
+            <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+            <li><a class="nav-a" href="../ZimFront/pujcovna.html">PŮJČOVNA</a></li>
+            <li><a class="nav-a" href="../ZimFront/kontakt.html">KONTAKT</a></li>
+        </ul>
+    </nav>
+    <div id="bSingd">
+        <a th:href="@{/prihlaseni}"><button id="Bsing">Přihlásit se</button></a>
+    </div>
+    <div id="profile-link">
+        <img th:src="@{/pictures/c-ico.svg}" id="per-icon">
+        <a href="../ZimFront/profil.html">@Jméno</a>
+    </div>
+</header>
+<main>
+    <div class="frst-pan-vyb">
+        <p>
+        <h1>Vybavení</h1>
+        <h3>Prohlédněte si, co si u nás lze půjčit</h3>
+        o tomto obchodě, triady triady, jsme půjčovna
+        </p>
+    </div>
+    <div class="eq-category">
+        <h2>Kategorie</h2>
+        <ul class="category-list">
+            <a th:href="@{/equipment}" th:style="|background-image: url(@{/pictures/vybaveni.jpg});|"> Všechno </a>
+            <li th:each="c : ${categories}">
+                <a th:href="@{/equipment/category/{id}(id=${c.id})}"
+                   th:style="|background-image: url('/pictures/@{${c.imageUrl}}');|"
+                   th:text="${c.name}">
+                </a>
+
+            </li>
+        </ul>
+        <a href="#item-table-Container">
+            <button id="itemButton">
+                Přejít na seznam
+            </button>
+        </a>
+    </div>
+    <div id="item-container">
+        <h2>Seznam vybavení</h2>
+        <div id="item-table-Container">
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Název</th>
+                    <th scope="col">Skladem</th>
+                    <th scope="col">Kategorie</th>
+                    <th scope="col">Kondice</th>
+                    <th scope="col">Cena za den</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="e : ${equipment}">
+                    <td th:text="${e.name}"></td>
+                    <td th:text="${e.available} ? 'Skladem' : 'Zarezervováno'"></td>
+                    <td th:text="${e.category.name}"></td>
+                    <td th:text="${e.condition.name}"></td>
+                    <td th:text="${e.costPerDay + ' Kč'}"></td>
+                    <td>
+                        <form method="post" th:if="${e.available}" th:action="@{/reserve/{id}(id=${e.id})}">
+                            <input type="submit" value="Rezervovat">
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</main>
+
+<footer>
+    Jedná se o studentský zápočtový projekt pro univerzitu Hradec Králové
+</footer>
+</body>
+<script th:src="@{/scripts/VortScript.js}"></script>
+</html>
