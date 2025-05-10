@@ -4,25 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZimSport</title>
-  <link rel="stylesheet" href="../static/VortStyle.css">
-  <link rel="stylesheet" href="../static/pujcStyle.css">
+  <link rel="stylesheet" href="../src/main/resources/static/VortStyle.css">
+  <link rel="stylesheet" href="../src/main/resources/static/pujcStyle.css">
 </head>
 <body onload="startFunction();finishHeader();">
 <header>
-  <img src="../static/pictures/logo.png" alt="logo">
+  <img src="../src/main/resources/static/pictures/logo.png" alt="logo">
   <nav>
     <ul class="navbar-list">
-      <li><a class = "nav-a" href="../templates/index.html">INFORMACE</a></li>
-      <li><a class = "nav-a" href="../templates/equipment.html">VYBAVENÍ</a></li>
+      <li><a class = "nav-a" href="../src/main/resources/templates/index.html">INFORMACE</a></li>
+      <li><a class = "nav-a" href="../src/main/resources/templates/equipment.html">VYBAVENÍ</a></li>
       <li><a class = "nav-a" href="pujcovna.html">PŮJČOVNA</a></li>
       <li><a class = "nav-a" href="kontakt.html">KONTAKT</a></li>
     </ul>
   </nav>
   <div id="bSingd">
-    <a href="../templates/prihlaseni.html"><button id="Bsing" > Přihlásit se</button></a>
+    <a href="../src/main/resources/templates/login.html"><button id="Bsing" > Přihlásit se</button></a>
   </div>
   <div id="profile-link">
-    <img src="../static/pictures/c-ico.svg" id="per-icon">
+    <img src="../src/main/resources/static/pictures/c-ico.svg" id="per-icon">
     <a href="profil.html">@Jméno</a>
   </div>
 </header>
@@ -103,7 +103,7 @@
   <button onclick="closeDialog(thDialog)">Zrušit</button>
 </dialog>
 <dialog id="fin-res-affirm">
-  <img src="../static/pictures/Tick.svg" alt="Tick">
+  <img src="../src/main/resources/static/pictures/Tick.svg" alt="Tick">
   <h2>Vaše rezervace byla potvrzena!</h2>
   naši pracovníci se na to vrhnou jak jen to bude možné. Průběh můžete sledovat ve svém profilu, nebo ve své emailové schránce.
   <br>
@@ -120,6 +120,6 @@
   Jedná se o studentský zápočtový projekt pro univerzitu Hradec Králové
 </footer>
 </body>
-<script src="../static/scripts/pujcScript.js"></script>
+<script src="../src/main/resources/static/scripts/pujcScript.js"></script>
 <script src="../static/scripts/VortScript.js"></script>
 </html>

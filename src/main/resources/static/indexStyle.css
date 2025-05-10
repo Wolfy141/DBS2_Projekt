@@ -1,6 +1,10 @@
 .frst-panel {
     padding: 20px;
     height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-image: url(pictures/snowboard2.jpg);
     background-repeat: no-repeat;
     background-position-y: -180px;

@@ -5,10 +5,11 @@ body{
     background-size: cover;
 }
 #registration{
-    display: none;
     flex-direction: column;
     align-items: center;
-
+    justify-content: center;
+    display: flex;
+    height: 70vh;
 }
 form{
     padding: 25px;
@@ -67,12 +68,13 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 70vh;
 }
 
 #login form{
-    color: #2F3061;
-    border:solid 1px #2F3061;
-    background-color: #F7FFF7;
+    color: #F7FFF7;
+    background-color: #2F3061;
 }
 input{
     border-radius: 8px;
@@ -113,11 +115,14 @@ input{
 }
 
 .regLog-options{
-    display: flex;
-    width: 25%;
-    justify-content: space-between;
-    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
+.regLog-options a{
+    color: #f7fff7;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 #regSwitch,#logSwitch{
     cursor: pointer;
     text-decoration: underline #FFE66D;

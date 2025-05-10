@@ -7,43 +7,38 @@
     <link rel="stylesheet" th:href="@{/VortStyle.css}">
     <link rel="stylesheet" th:href="@{/vybStyle.css}">
 </head>
-<body onload="finishHeader()">
+<body>
 <header>
     <img th:src="@{/pictures/logo.png}" alt="logo">
     <nav>
         <ul class="navbar-list">
             <li><a class = "nav-a" th:href="@{/}">INFORMACE</a></li>
-            <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
-            <li><a class="nav-a" href="../ZimFront/pujcovna.html">PŮJČOVNA</a></li>
-            <li><a class="nav-a" href="../ZimFront/kontakt.html">KONTAKT</a></li>
+            <li><a class = "nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+            <li><a class = "nav-a" href="../../../../ZimFront/pujcovna.html">PŮJČOVNA</a></li>
+            <li><a class = "nav-a" href="../../../../ZimFront/kontakt.html">KONTAKT</a></li>
         </ul>
     </nav>
     <div id="bSingd">
-        <a th:href="@{/prihlaseni}"><button id="Bsing">Přihlásit se</button></a>
-    </div>
-    <div id="profile-link">
-        <img th:src="@{/pictures/c-ico.svg}" id="per-icon">
-        <a href="../ZimFront/profil.html">@Jméno</a>
+        <a th:href="@{/login}"><button id="Bsing">Přihlásit se</button></a>
     </div>
 </header>
 <main>
     <div class="frst-pan-vyb">
-        <p>
         <h1>Vybavení</h1>
         <h3>Prohlédněte si, co si u nás lze půjčit</h3>
         o tomto obchodě, triady triady, jsme půjčovna
-        </p>
     </div>
     <div class="eq-category">
-        <h2>Kategorie</h2>
+        <h2> Kategorie </h2>
         <ul class="category-list">
-            <a th:href="@{/equipment}" th:style="|background-image: url(@{/pictures/vybaveni.jpg});|"> Všechno </a>
+            <li>
+                <a th:href="@{/equipment}" th:style="|background-image: url(@{/pictures/vybaveni.jpg});|"> Všechno </a>
+            </li>
             <li th:each="c : ${categories}">
                 <a th:href="@{/equipment/category/{id}(id=${c.id})}"
                    th:style="|background-image: url('/pictures/@{${c.imageUrl}}');|"
                    th:text="${c.name}">
                 </a>
-
             </li>
         </ul>
         <a href="#item-table-Container">
@@ -88,7 +83,8 @@
 
 <footer>
     Jedná se o studentský zápočtový projekt pro univerzitu Hradec Králové
+    <br>
+    Leonard Špaček, Alex Musil, Lukáš Bartoš
 </footer>
 </body>
-<script th:src="@{/scripts/VortScript.js}"></script>
 </html>

@@ -15,26 +15,40 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @GetMapping(value = "/login")
-    public String loginPage() {
-        return "loginOLD";
-    }
-    @GetMapping(value = "/register")
-    public String create1(Model model) {
+    public String loginPage(Model model) {
         Customer customer = new Customer();
         model.addAttribute("customer", customer);
-        return "registrationOLD";
+        return "login";
+    }
+
+    @GetMapping(value = "/register")
+    public String registerPage(Model model) {
+        Customer customer = new Customer();
+        model.addAttribute("customer", customer);
+        return "registration";
     }
 
     @PostMapping(value = "/register")
-    public String create2(Model model, Customer customer) {
+    public String register(Model model, Customer customer) {
         model.addAttribute("customer", customerRepository.save(customer));
         return "redirect:/";
     }
 
-    @GetMapping(value = "/edit/{id}")
+    @PostMapping(value = "/login")
+    public String login(Model model, Customer customer) {
+        for (Customer c : customerRepository.findAll()) {
+            if (c.getEmail().equals(customer.getEmail()) && c.getPassword().equals(customer.getPassword())) {
+                model.addAttribute("customer", c);
+                return "redirect:/";
+            }
+        }
+        return "redirect:/login";
+    }
+
+    /*@GetMapping(value = "/edit/{id}")
     public String editForm(@PathVariable Long id, Model model) {
         model.addAttribute("customer", customerRepository.findById(id).orElseThrow());
         return "edit-profile";
-    }
+    }*/
 
 }

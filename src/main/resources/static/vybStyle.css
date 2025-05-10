@@ -1,6 +1,10 @@
 .frst-pan-vyb{
     padding: 20px;
     height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-image:url(pictures/mountains-7846880_1920.jpg);
     background-repeat: no-repeat;
     background-position-y:-180px;
@@ -10,8 +14,7 @@
     color: #F7FFF7;
 }
 .frst-pan-vyb h1{
-    padding-top: 40px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 .eq-category{
     display: flex;

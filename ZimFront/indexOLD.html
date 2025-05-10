@@ -17,7 +17,7 @@
     <li th:each="c : ${categories}">
       <a th:href="@{/category/{id}(id=${c.id})}" th:text="${c.name}">Category Name</a>
     </li>
-    <li><a th:href="@{/}">Všechny</a></li> <!-- Link to show all -->
+    <li><a th:href="@{/static}">Všechny</a></li> <!-- Link to show all -->
   </ul>
 </div>
 

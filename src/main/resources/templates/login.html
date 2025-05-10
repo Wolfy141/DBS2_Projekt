@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport Prihlaseni</title>
+    <link rel="stylesheet" th:href="@{/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/regLog.css}">
+
+
+</head>
+<body>
+    <header>
+        <img th:src="@{/pictures/logo.png}" alt="logo">
+        <nav>
+            <ul class="navbar-list">
+                <li><a class = "nav-a" th:href="@{/}">INFORMACE</a></li>
+                <li><a class = "nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+                <li><a class = "nav-a" href="../../../../ZimFront/pujcovna.html">PŮJČOVNA</a></li>
+                <li><a class = "nav-a" href="../../../../ZimFront/kontakt.html">KONTAKT</a></li>
+            </ul>
+        </nav>
+        <div id="bSingd">
+            <a th:href="@{/login}"><button id="Bsing">Přihlásit se</button></a>
+        </div>
+    </header>
+    <main id="login_main">
+        <section id="login">
+
+            <form method="post" th:action="@{/login}" th:object="${customer}">
+                <h1>Přihlášení</h1>
+                <input type="hidden" th:field="*{id}">
+                <div class="logDiv">
+                    <label for="logUEmail">E-mail</label>
+                    <input id="logUEmail" name="uEmail" type="text" th:field="*{email}" placeholder="vaše@adresa.cz">
+                </div>
+                <div class="logDiv">
+                    <label for="logPass">Heslo</label>
+                    <input id="logPass" name="uName" type="password" th:field="*{password}" placeholder="Vaše super-tajné heslo">
+                </div>
+                <br>
+                <input class="sButton" id="l" type="submit" value="Přihlásit se">
+            </form>
+            <div class= "regLog-options">
+                <a th:href="@{/register}">Zaregistrujte se zde</a>
+            </div>
+        </section>
+    </main>
+    <footer style="position: absolute; bottom: 0">
+        Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
+        <br>
+        Leonard Špaček, Alex Musil, Lukáš Bartoš
+        <br>
+        Kontaktní email: musilal1@uhk.cz
+    </footer>
+</body>
+</html>
