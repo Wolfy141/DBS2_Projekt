@@ -4,27 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZimSport</title>
-  <link rel="stylesheet" href="../src/main/resources/static/VortStyle.css">
-  <link rel="stylesheet" href="../src/main/resources/static/konStyle.css">
+  <link rel="stylesheet" th:href="@{/konStyle.css}">
+  <link rel="stylesheet" th:href="@{/VortStyle.css}">
+  <link rel="stylesheet" th:href="@{/indexStyle.css}">
 
 </head>
-<body onload="finishHeader()">
+<body>
 <header>
-  <img src="../src/main/resources/static/pictures/logo.png" alt="logo">
+  <img th:src="@{/pictures/logo.png}" alt="logo">
   <nav>
     <ul class="navbar-list">
-      <li><a class = "nav-a" href="../src/main/resources/templates/index.html">INFORMACE</a></li>
-      <li><a class = "nav-a" href="../src/main/resources/templates/equipment.html">VYBAVENÍ</a></li>
-      <li><a class = "nav-a" href="pujcovna.html">PŮJČOVNA</a></li>
-      <li><a class = "nav-a" href="kontakt.html">KONTAKT</a></li>
+      <li><a class = "nav-a" th:href="@{/}">INFORMACE</a></li>
+      <li><a class = "nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+      <li><a class = "nav-a" th:href="@{/contact}">KONTAKT</a></li>
     </ul>
   </nav>
   <div id="bSingd">
-    <a href="../src/main/resources/templates/login.html"><button id="Bsing" > Přihlásit se</button></a>
-  </div>
-  <div id="profile-link">
-    <img src="../src/main/resources/static/pictures/c-ico.svg" id="per-icon">
-    <a href="profil.html">@Jméno</a>
+    <a th:href="@{/login}"><button id="Bsing">Přihlásit se</button></a>
   </div>
 </header>
 
@@ -107,7 +103,7 @@
           </table>
         </div>
       </div>
-      <img src="../src/main/resources/static/pictures/snowboard-4803050_1920.jpg" alt="snowboard">
+      <img th:src="@{/pictures/snowboard-4803050_1920.jpg}" alt="snowboard">
     </div>
   </div>
 </main>
@@ -116,5 +112,4 @@
   Jedná se o studentský zápočtový projekt pro univerzitu Hradec Králové
 </footer>
 </body>
-<script src="../static/scripts/VortScript.js"></script>
 </html>
