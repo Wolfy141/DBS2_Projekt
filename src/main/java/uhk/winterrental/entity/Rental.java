@@ -46,4 +46,16 @@ public class Rental {
             inverseJoinColumns = @JoinColumn(name = "equipment_id")
     )
     private Set<Equipment> equipment = new HashSet<>();
+
+    public double getCostOfEquipment() {
+        return equipment.stream()
+                .mapToDouble(Equipment::getCostPerDay)
+                .sum();
+    }
+    public String getEquipmentNames() {
+        return equipment.stream()
+                .map(Equipment::getName)
+                .reduce((a, b) -> a + ", " + b)
+                .orElse("");
+    }
 }

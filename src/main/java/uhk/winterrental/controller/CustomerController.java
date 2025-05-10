@@ -19,6 +19,8 @@ public class CustomerController {
     public String profilePage(@PathVariable String email, Model model) {
         Customer customer = customerService.findCustomerByEmail(email);
         model.addAttribute("customer", customer);
+        model.addAttribute("reservations", customer.getReservations());
+        model.addAttribute("rentals", customer.getRentals());
         return "profile";
     }
 

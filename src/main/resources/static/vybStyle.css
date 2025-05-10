@@ -57,20 +57,29 @@
     display: flex;
     flex-direction: row;
     list-style: none;
+    padding: 0;
+}
+.category-list li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
 }
 
 .category-list a{
     background-size: cover;
-    height: 300px;
-    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
     margin-right: 20px;
-    display: block;
     color: orange;
     font-size: 24px;
     font-weight: bold;
     text-shadow: 2px 2px 2px #000;
     text-align: center;
-    line-height: 250px;
     text-decoration: none;
     border-radius: 15px;
 }
@@ -140,6 +149,10 @@ td, th{
 
 
 @media (max-width: 768px) {
+    .frst-pan-vyb{
+        background-position-y: 0;
+        background-attachment: scroll;
+    }
     /* Zajištění, že tabulka nebude přesahovat */
     #item-table-Container {
         max-height: 300px;
@@ -173,10 +186,11 @@ td, th{
     }
     .category-list li {
         margin-bottom: 10px;
-    }
-    .category-list a {
         height: 150px;
         width: 150px;
+    }
+    .category-list a {
+        margin: 0;
     }
 }
 

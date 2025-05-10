@@ -46,4 +46,9 @@ public class Reservation {
         this.equipment.add(equipment);
         equipment.getReservations().add(this);
     }
+    public double getCostOfEquipment() {
+        return equipment.stream()
+                .mapToDouble(Equipment::getCostPerDay)
+                .sum();
+    }
 }

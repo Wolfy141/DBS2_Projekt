@@ -10,46 +10,43 @@
 
 </head>
 <body>
-    <header>
-        <img th:src="@{/pictures/logo.png}" alt="logo">
-        <nav>
-            <ul class="navbar-list">
-                <li><a class = "nav-a" th:href="@{/}">INFORMACE</a></li>
-                <li><a class = "nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
-                <li><a class = "nav-a" th:href="@{/contact}">KONTAKT</a></li>
-            </ul>
-        </nav>
-        <div id="bSingd">
-            <a th:href="@{/login}"><button id="Bsing">Přihlásit se</button></a>
-        </div>
-    </header>
-    <main id="login_main">
-        <section id="login">
+<header>
+    <img th:src="@{/pictures/logo.png}" alt="logo">
+    <nav>
+        <ul class="navbar-list">
+            <li><a class="nav-a" th:href="@{/}">INFORMACE</a></li>
+            <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+            <li><a class="nav-a" th:href="@{/contact}">KONTAKT</a></li>
+        </ul>
+    </nav>
+</header>
+<main id="login_main">
+    <section id="login">
 
-            <form th:action="@{/login}" method="post">
-                <div>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username"/>
-                </div>
-                <div>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password"/>
-                </div>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-            <div class= "regLog-options">
-                <a th:href="@{/register}">Zaregistrujte se zde</a>
+        <form th:action="@{/login}" method="post">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"/>
             </div>
-        </section>
-    </main>
-    <footer style="position: absolute; bottom: 0">
-        Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
-        <br>
-        Leonard Špaček, Alex Musil, Lukáš Bartoš
-        <br>
-        Kontaktní email: musilal1@uhk.cz
-    </footer>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"/>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <div class="regLog-options">
+            <a th:href="@{/register}">Zaregistrujte se zde</a>
+        </div>
+    </section>
+</main>
+<footer style="position: absolute; bottom: 0">
+    Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
+    <br>
+    Leonard Špaček, Alex Musil, Lukáš Bartoš
+    <br>
+    Kontaktní email: musilal1@uhk.cz
+</footer>
 </body>
 </html>

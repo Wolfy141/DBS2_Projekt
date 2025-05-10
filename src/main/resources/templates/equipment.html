@@ -14,17 +14,19 @@
     <img th:src="@{/pictures/logo.png}" alt="logo">
     <nav>
         <ul class="navbar-list">
-            <li><a class = "nav-a" th:href="@{/}">INFORMACE</a></li>
-            <li><a class = "nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
-            <li><a class = "nav-a" th:href="@{/contact}">KONTAKT</a></li>
+            <li><a class="nav-a" th:href="@{/}">INFORMACE</a></li>
+            <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+            <li><a class="nav-a" th:href="@{/contact}">KONTAKT</a></li>
         </ul>
     </nav>
     <div sec:authorize="isAnonymous()" id="bSingd">
-        <a th:href="@{/login}"><button id="Bsing">Přihlásit se</button></a>
+        <a th:href="@{/login}">
+            <button id="Bsing">Přihlásit se</button>
+        </a>
     </div>
     <div sec:authorize="isAuthenticated()" id="profile-link">
-        <img alt="profile-icon" th:src="@{pictures/c-ico.svg}" id="per-icon">
-        <a th:href="@{'/profile/' + ${#authentication.name}}">Profil</a>
+        <img alt="profile-icon" th:src="'/pictures/c-ico.svg'" id="per-icon">
+        <a th:href="@{'/profile/' + ${#authentication.name}}" th:text="${#authentication.name}"></a>
     </div>
 </header>
 <main>
