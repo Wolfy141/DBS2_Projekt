@@ -16,7 +16,7 @@
 }
 #kont-cont-tables div
 {
-    border-width: 0px 1px 3px 1px;  /* top | right | bottom | left */
+    border-width: 0 1px 3px 1px;  /* top | right | bottom | left */
     border-style: none solid solid solid;
     border-color: #2F3061;
     border-radius: 15px;
@@ -41,17 +41,20 @@
     border-radius: 15px;
     max-width: 400px;
 
-    box-shadow: 30px -30px 0px #2F3061;
+    box-shadow: 30px -30px 0 #2F3061;
 }
 
 .frst-panel-kon{
     padding: 20px;
     height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-image:url(pictures/wint3.jpg);
     background-repeat: no-repeat;
-    background-position-y:-180px;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: scroll;
     text-align: center;
     color: #F7FFF7;
 }
@@ -80,7 +83,7 @@
 
     #kont-cont-tables div {
         width: 100%;
-        border-width: 0px 0px 3px 0px;
+        border-width: 0 0 3px 0;
         border-radius: 10px;
         padding: 0.5em;
     }
@@ -94,7 +97,7 @@
     .kontakty img {
         max-width: 100%;
         height: auto;
-        box-shadow: 10px -10px 0px #2F3061;
+        box-shadow: 10px -10px 0 #2F3061;
     }
 
     /* Úvodní panel stránky kontaktu */

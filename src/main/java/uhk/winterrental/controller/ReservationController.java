@@ -4,17 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import uhk.winterrental.entity.Equipment;
-import uhk.winterrental.entity.Reservation;
 import uhk.winterrental.repository.CustomerRepository;
 import uhk.winterrental.repository.EquipmentRepository;
 import uhk.winterrental.repository.ReservationRepository;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Controller
 public class ReservationController {
@@ -25,6 +17,13 @@ public class ReservationController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @GetMapping("/reservations")
+    public String reservations(Model model) {
+        //TODO: get reserved equipment from vybaveni
+        //model.addAttribute("reservations", );
+        return "reservations";
+    }
+    /*
     @PostMapping("/reserve/{id}")
     public String reserveEquipment(Model model, @PathVariable Long id) {
         Reservation reservation = new Reservation();
@@ -47,7 +46,7 @@ public class ReservationController {
             }
         }
         model.addAttribute("reservations", reservations);
-        return "reservationsOLD";
+        return "";
     }
 
     @PostMapping("/cancel-reservation")
@@ -63,4 +62,5 @@ public class ReservationController {
         // TODO: Redirect to the appropriate page (e.g., reservations list for the customer)
         return "redirect:/";
     }
+    */
 }
