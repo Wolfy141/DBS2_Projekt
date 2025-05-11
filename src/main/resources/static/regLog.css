@@ -9,7 +9,10 @@ body{
     align-items: center;
     justify-content: center;
     display: flex;
-    height: 70vh;
+    min-height: 70vh;
+}
+main {
+    height: 75vh;
 }
 form{
     padding: 25px;
@@ -92,24 +95,14 @@ input{
     will-change: transform;
     width: 8em;
     align-self: center;
-}
-
-.sButton#l{
-    border: 2px solid #2F3061;
-}
-.sButton#r{
     border: 2px solid #343434;
     background-color: #FFE66D;
+    padding: 8px;
 }
+
 .sButton:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
-}
-.sButton#l:hover {
-    color: #fff;
-    background-color: #2F3061;
-}
-.sButton#r:hover {
     color: #FFE66D;
     background-color: #343434;
 }
@@ -128,11 +121,17 @@ input{
     text-decoration: underline #FFE66D;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     #login_main {
         background-size: cover;
         background-position: center;
         background-attachment: scroll;
+    }
+    body {
+        height: auto;
+    }
+    main {
+        height: auto;
     }
 
     /* Formulář */

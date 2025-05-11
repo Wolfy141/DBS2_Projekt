@@ -24,24 +24,22 @@
     <section id="login">
 
         <form th:action="@{/login}" method="post">
-            <div>
+            <div class="logDiv">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username"/>
             </div>
-            <div>
+            <div class="logDiv">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password"/>
             </div>
-            <div>
-                <button type="submit">Login</button>
-            </div>
+                <button class="sButton" type="submit">Login</button>
         </form>
         <div class="regLog-options">
             <a th:href="@{/register}">Zaregistrujte se zde</a>
         </div>
     </section>
 </main>
-<footer style="position: absolute; bottom: 0">
+<footer>
     Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
     <br>
     Leonard Špaček, Alex Musil, Lukáš Bartoš

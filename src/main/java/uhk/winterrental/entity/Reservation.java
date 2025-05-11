@@ -51,4 +51,10 @@ public class Reservation {
                 .mapToDouble(Equipment::getCostPerDay)
                 .sum();
     }
+    public String getEquipmentNames() {
+        return equipment.stream()
+                .map(Equipment::getName)
+                .reduce((a, b) -> a + ", " + b)
+                .orElse("");
+    }
 }

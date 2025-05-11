@@ -10,7 +10,6 @@ margin: 0;
 body{
     background-color: #F7FFF7;
     min-height: 100vh;
-
 }
 
 h1{
@@ -227,6 +226,7 @@ bílá:
         min-height: 12em;
         text-align: center;
         padding: 2em 0;
+        position: relative;
     }
 
     footer p {
