@@ -95,6 +95,8 @@ button{
 #profile-link{
 display: flex;
     align-content: center;
+    align-items: center;
+    justify-content: center;
     gap: 0.5em;
 }
 #profile-link a{

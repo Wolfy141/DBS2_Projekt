@@ -25,6 +25,9 @@
         </a>
     </div>
     <div sec:authorize="isAuthenticated()" id="profile-link">
+        <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+            <button type="submit" class="btn btn-link">Odhlásit se</button>
+        </form>
         <img alt="profile-icon" th:src="'/pictures/c-ico.svg'" id="per-icon">
         <a th:href="@{'/profile/' + ${#authentication.name}}" th:text="${#authentication.name}"></a>
     </div>

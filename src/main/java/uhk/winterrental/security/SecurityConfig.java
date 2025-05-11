@@ -47,7 +47,7 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/", true)
                         .permitAll()) // Permit all to access the login page
                 .logout(logout -> logout
-                        .logoutUrl("/")
+                        .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
                         .permitAll()
                 )
