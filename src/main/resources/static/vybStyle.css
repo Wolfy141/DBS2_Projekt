@@ -125,12 +125,12 @@ input {
     margin: 1em;
 
 }
-#item-table-Container .buttTon{
+.buttTon{
     display: flex;
     justify-content: center;
     align-items: end;
     flex-direction: column;
-    margin-bottom: 10px;
+    width: 50%;
 }
 #item-table-Container > table{
     width: 100%;
