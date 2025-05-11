@@ -3,22 +3,23 @@ package uhk.winterrental.security;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import uhk.winterrental.entity.Customer;
+import uhk.winterrental.entity.Employee;
+import uhk.winterrental.entity.User;
 
 import java.util.Collection;
 import java.util.List;
 
-public class CustomerDetails implements UserDetails {
+public class MyUserDetails implements UserDetails {
+    private final User user;
 
-    private final Customer user;
-
-    public CustomerDetails(Customer user) {
+    public MyUserDetails(User user) {
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_CUSTOMER"));
+        String role = (user instanceof Employee) ? "ROLE_ADMIN" : "ROLE_CUSTOMER";
+        return List.of(new SimpleGrantedAuthority(role));
     }
 
     @Override

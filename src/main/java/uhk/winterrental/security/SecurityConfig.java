@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
-import uhk.winterrental.service.CustomerService;
+import uhk.winterrental.service.UserService;
 
 @Configuration
 @EnableWebSecurity
@@ -19,26 +19,31 @@ public class SecurityConfig {
 
 
     private final PasswordEncoder passwordEncoder;
-    private CustomerService customerService;
+    private UserService userService;
 
     @Autowired
-    public SecurityConfig(CustomerService customerService, PasswordEncoder passwordEncoder) {
-        this.customerService = customerService;
+    public SecurityConfig(UserService userService, PasswordEncoder passwordEncoder) {
+        this.userService = userService;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(customerService).passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests((requests) -> requests // Change to authorizeHttpRequests
-                        .requestMatchers("/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+                .authorizeHttpRequests(auth -> auth
+                        // Admin-only paths
+                        .requestMatchers("/admin/**", "/templates/admin.html").hasRole("ADMIN")
+
+                        // Publicly accessible paths
+                        .requestMatchers("/", "/login", "/css/**", "/js/**", "/images/**").permitAll()
+
+                        // All other requests
+                        .anyRequest().permitAll()
                 )
                 //.formLogin(Customizer.withDefaults())
                 .formLogin((form) -> form
@@ -65,7 +70,7 @@ public class SecurityConfig {
     }
 
     @Autowired
-    public void setCustomerService(CustomerService customerService) {
-        this.customerService = customerService;
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 }

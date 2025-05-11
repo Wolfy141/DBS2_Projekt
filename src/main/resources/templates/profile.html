@@ -16,6 +16,7 @@
             <li><a class="nav-a" th:href="@{/}">INFORMACE</a></li>
             <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
             <li><a class="nav-a" th:href="@{/contact}">KONTAKT</a></li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-a" th:href="@{/admin}">Admin sekce</a></li>
         </ul>
     </nav>
     <div sec:authorize="isAnonymous()" id="bSingd">

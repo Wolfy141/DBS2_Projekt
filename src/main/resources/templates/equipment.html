@@ -17,6 +17,7 @@
             <li><a class="nav-a" th:href="@{/}">INFORMACE</a></li>
             <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
             <li><a class="nav-a" th:href="@{/contact}">KONTAKT</a></li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-a" th:href="@{/admin}">Admin sekce</a></li>
         </ul>
     </nav>
     <div sec:authorize="isAnonymous()" id="bSingd">
@@ -29,7 +30,7 @@
             <button type="submit" class="btn btn-link">Odhlásit se</button>
         </form>
         <img alt="profile-icon" th:src="'/pictures/c-ico.svg'" id="per-icon">
-        <a th:href="@{'/profile/' + ${#authentication.name}}" th:text="${#authentication.name}"></a>
+        <a sec:authorize="hasRole('ROLE_CUSTOMER')" th:href="@{'/profile/' + ${#authentication.name}}" th:text="${#authentication.name}"></a>
     </div>
 </header>
 <main>

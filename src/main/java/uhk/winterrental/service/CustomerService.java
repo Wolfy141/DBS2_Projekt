@@ -1,17 +1,13 @@
 package uhk.winterrental.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import uhk.winterrental.entity.Customer;
 import uhk.winterrental.repository.CustomerRepository;
-import uhk.winterrental.security.CustomerDetails;
 
 @Service
-public class CustomerService implements UserDetailsService {
+public class CustomerService {
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -33,15 +29,6 @@ public class CustomerService implements UserDetailsService {
             }
         }
         return null;
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Customer customer = findCustomerByEmail(username);
-        if (customer == null) {
-            throw new UsernameNotFoundException(username);
-        }
-        return new CustomerDetails(customer);
     }
 
     public void save(Customer customer) {

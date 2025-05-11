@@ -12,14 +12,11 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
+public class Customer extends User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Long id;
-
-    @Column(nullable = false, length = 32, unique = true)
-    private String email;
 
     @Column(name = "first_name", length = 24)
     private String firstName;
@@ -29,8 +26,6 @@ public class Customer {
 
     @Column(length = 20)
     private String phone;
-
-    private String password;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Rental> rentals = new HashSet<>();
