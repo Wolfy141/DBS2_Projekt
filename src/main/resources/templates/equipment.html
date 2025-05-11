@@ -56,8 +56,13 @@
     </div>
     <div id="item-container">
         <h2>Seznam vybavení</h2>
-        <p>Cena je za vypůjčení (ty se řeší na prodejně), rezervace jsou zdarma. Zboží je možné rezervovat na 7 dní</p>
+        <p>Cena je za vypůjčení (ty se řeší na prodejně), rezervace jsou zdarma.</p>
+        <p sec:authorize="isAnonymous()" style="color: red; font-weight: bold">Nejste přihlášen, takže nemůžete rezervovat vybavení.</p>
         <div id="item-table-Container">
+            <div class="buttTon" sec:authorize="isAuthenticated()">
+                <a class="a-rez" th:href="@{/reservation}" th:text="'Vytvořit rezervaci'"> </a>
+            </div>
+
             <table>
                 <thead>
                 <tr>
@@ -75,9 +80,9 @@
                     <td th:text="${e.category.name}"></td>
                     <td th:text="${e.condition.name}"></td>
                     <td th:text="${e.costPerDay + ' Kč'}"></td>
-                    <td>
+                    <td sec:authorize="isAuthenticated()">
                         <form method="post" th:if="${e.available}" th:action="@{/reserve/{id}(id=${e.id})}">
-                            <input type="submit" value="Rezervovat">
+                            <input type="submit" value="Do rezervace">
                         </form>
                     </td>
                 </tr>

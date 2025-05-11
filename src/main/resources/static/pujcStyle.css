@@ -1,6 +1,10 @@
 .frst-pan-pujcovna {
     padding: 20px;
     height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-image: url(pictures/yellowjacket.jpg);
     background-repeat: no-repeat;
     background-position-y: -180px;
@@ -10,28 +14,36 @@
     color: #F7FFF7;
 }
 .borrow-tool-window{
+    min-height: 30vh;
    margin: 3em 1em 2em 1em;
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-.borrow-tool-window form{
+.borrow-tool-form{
     background-color: #343434;
     color: #FFE66D;
     border-bottom: #FFE66D solid 1px;
     padding: 0.5em;
     display:flex;
     flex-direction: row;
+    width: 400px;
     justify-content: space-between;
+    align-items: center;
+}
+.borrow-tool-window input {
+    background-color: #FFE66D;
+    color: #343434;
+    border: 1px solid #2F3061;
+    padding: 0.5em;
+    margin: 0.5em;
+    cursor: pointer;
 }
 
-
 #item-table-Container{
-    max-height: 350px;
-    overflow: scroll;
+    min-width: 400px;
     background-color: #343434;
     border: 1px #343434 solid;
-
 }
 #item-table-Container > table{
     width: 100%;

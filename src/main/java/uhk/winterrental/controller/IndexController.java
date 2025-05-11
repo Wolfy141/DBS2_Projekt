@@ -22,4 +22,9 @@ public class IndexController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
 }
