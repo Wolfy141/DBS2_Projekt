@@ -59,7 +59,7 @@
                     <td th:text="${r.reservationDate}"></td>
                     <td th:text="${r.expirationDate}"></td>
                     <td th:text="${r.getEquipmentNames()}"></td>
-                    <td th:text="${r.getCostOfEquipment()}"></td>
+                    <td th:text="${r.getCostOfEquipment()} + ' Kč'"></td>
                 </tr>
                 </tbody>
             </table>
