@@ -62,9 +62,7 @@
         <h2>Seznam vybavení</h2>
         <p>Cena je za vypůjčení (ty se řeší na prodejně), rezervace jsou zdarma.</p>
         <p sec:authorize="isAnonymous()" style="color: red; font-weight: bold">Nejste přihlášen, takže nemůžete rezervovat vybavení.</p>
-        <div class="buttTon" sec:authorize="isAuthenticated()">
-            <a class="a-rez" th:href="@{/reservation}" th:text="'Vytvořit rezervaci'"> </a>
-        </div>
+
         <div id="item-table-Container">
             <table>
                 <thead>
@@ -74,6 +72,7 @@
                     <th scope="col">Kategorie</th>
                     <th scope="col">Kondice</th>
                     <th scope="col">Cena za den</th>
+                    <th scope="col">Přidat</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -91,6 +90,9 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="buttTon" sec:authorize="isAuthenticated()">
+            <a class="a-rez" th:href="@{/reservation}" th:text="'Vytvořit rezervaci'"> </a>
         </div>
     </div>
 

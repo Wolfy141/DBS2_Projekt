@@ -130,6 +130,7 @@ input {
     justify-content: center;
     align-items: end;
     flex-direction: column;
+
     width: 50%;
 }
 #item-table-Container > table{

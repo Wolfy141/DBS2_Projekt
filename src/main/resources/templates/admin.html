@@ -35,50 +35,52 @@
 </header>
 
 <!-- Add this inside your admin.html template -->
-<div class="kontainer">
-    <h2>Přidat nové vybavení</h2>
-    <form th:action="@{/admin/equipment/add}" th:object="${equipment}" method="post">
-        <!-- CSRF Token (required for POST) -->
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+<div class="container">
+    <h1>Admin sekce</h1>
 
-        <!-- Equipment Name -->
-        <div class="mb-3">
-            <label class="form-label">Název</label>
-            <input type="text" class="form-control" th:field="*{name}" required>
+    <form th:action="@{/admin/equipment/add}" th:object="${equipment}" method="post" id="newItemForm">
+        <h2>Přidat nové vybavení</h2>
+        <div id="formContent">
+            <!-- CSRF Token (required for POST) -->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+            <!-- Equipment Name -->
+            <div class="mb-3">
+                <label class="form-label">Název</label>
+                <input type="text" class="form-control" th:field="*{name}" required>
+            </div>
+
+            <!-- Daily Cost -->
+            <div class="mb-3">
+                <label class="form-label">Cena za den (Kč)</label>
+                <input type="number" class="form-control" th:field="*{costPerDay}" required>
+            </div>
+
+            <!-- Category Dropdown -->
+            <div class="mb-3">
+                <label class="form-label">Kategorie</label>
+                <select class="form-select" th:field="*{category}">
+                    <option th:each="cat : ${categories}"
+                            th:value="${cat.id}"
+                            th:text="${cat.name}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- Condition Dropdown -->
+            <div class="mb-3">
+                <label class="form-label">Stav</label>
+                <select class="form-select" th:field="*{condition}">
+                    <option th:each="cond : ${conditions}"
+                            th:value="${cond.id}"
+                            th:text="${cond.name}">
+                    </option>
+                </select>
+            </div>
         </div>
-
-        <!-- Daily Cost -->
-        <div class="mb-3">
-            <label class="form-label">Cena za den (Kč)</label>
-            <input type="number" class="form-control" th:field="*{costPerDay}" required>
-        </div>
-
-        <!-- Category Dropdown -->
-        <div class="mb-3">
-            <label class="form-label">Kategorie</label>
-            <select class="form-select" th:field="*{category}">
-                <option th:each="cat : ${categories}"
-                        th:value="${cat.id}"
-                        th:text="${cat.name}">
-                </option>
-            </select>
-        </div>
-
-        <!-- Condition Dropdown -->
-        <div class="mb-3">
-            <label class="form-label">Stav</label>
-            <select class="form-select" th:field="*{condition}">
-                <option th:each="cond : ${conditions}"
-                        th:value="${cond.id}"
-                        th:text="${cond.name}">
-                </option>
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Uložit</button>
+            <button type="submit" class="btn btn-primary">Uložit</button>
     </form>
 </div>
-<h2>Přidávání zákazníkům jejich půjčky vybavení work in progress</h2>
 </body>
 <footer>
     Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>

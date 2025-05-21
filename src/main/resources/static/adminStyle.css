@@ -4,8 +4,42 @@ form {
     background-color: #6CA6C1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-items: center;
+
+}
+h1{
+    color: #f2f2f2;
+    align-self: center;
+    width: fit-content;
+}
+h2{
+    align-self: center;
+}
+
+#formContent{
+    padding:1em;
+}
+
+body{
+    background-image: url(pictures/wint3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-self:center;
+    padding: 2em;
+}
+
+#newItemForm{
+    padding: 25px;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    border-radius: 15px;
+    font-size: 1em;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
 label{
     display: inline-block;
