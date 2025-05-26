@@ -1,58 +1,82 @@
 <!DOCTYPE html>
-<html lang="cs" xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZimSport</title>
-    <link rel="stylesheet" th:href="@{/styles/VortStyle.css}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/indexStyle.css}">
+
 </head>
 <body>
-    <header>
-       <img th:src="@{/pictures/logo.png}" alt="logo">
-        <nav>
-            <ul class="navbar-list">
-                <li><a class = "nav-a" th:href="@{/index}">INFORMACE</a></li>
-                <li><a class = "nav-a" th:href="@{/vybaveni}">VYBAVENÍ</a></li>
-                <li><a class = "nav-a" th:href="@{/pujcovna}">PŮJČOVNA</a></li>
-                <li><a class = "nav-a" th:href="@{/kontakt}">KONTAKT</a></li>
-            </ul>
-        </nav>
-        <a th:href="@{/prihlaseni}"><button id="Bsing" > Přihlásit se</button></a>
+<header>
+    <img th:src="@{/pictures/logo.png}" alt="logo">
+    <nav>
+        <ul class="navbar-list">
+            <li><a class="nav-a" th:href="@{/}">INFORMACE</a></li>
+            <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+            <li><a class="nav-a" th:href="@{/contact}">KONTAKT</a></li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-a" th:href="@{/admin}">Admin sekce</a></li>
+        </ul>
+    </nav>
+    <div sec:authorize="isAnonymous()" id="bSingd">
+        <a th:href="@{/login}">
+            <button id="Bsing">Přihlásit se</button>
+        </a>
+    </div>
+    <div sec:authorize="isAuthenticated()" id="profile-link">
+        <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+            <button type="submit" class="btn btn-link">Odhlásit se</button>
+        </form>
+        <img alt="profile-icon" th:src="'/pictures/c-ico.svg'" id="per-icon">
+        <a sec:authorize="hasRole('ROLE_CUSTOMER')" th:href="@{'/profile/' + ${#authentication.name}}" th:text="${#authentication.name}"></a>
+    </div>
+</header>
 
+<main>
+    <div class="frst-panel">
+        <h1>Vítejte v ZimSportu!</h1>
+        <h2>Půjčovně zimního sportovního vybavení v Hradci Králové</h2>
+    </div>
 
-    </header>
-
-    <main>
-        <div class="frst-panel">
-            <p>
-                <h1>Vítejte v ZimSportu!</h1>
-                <h2>Půjčovně zimního sportovního vybavení v Hradci Králové</h2>
-                o tomto obchodě, triady triady, jsme půjčovna
-            </p>
+    <div class="showof" id="s1">
+        <h2>Nové vybavení!</h2>
+        <div class="sh-content">
+            <div class="sh-text">
+                <h3>Dokoupili jsme vybavení</h3>
+                od těch nejlepších značek! V naší sekci Vybavení najdete to, co vám bude sedět přímo na míru. Od zboží
+                používaného až po zboží úplně nové.
+            </div>
+            <div class="sh-photo">
+                <img th:src="@{/pictures/ski-boot-257375_1280.jpg}" alt="ski boots" id="img1">
+                <img th:src="@{/pictures/vybaveni.jpg}" alt="helmet and skies" id="img2">
+            </div>
         </div>
+    </div>
 
-       <div class="showof">
-           <h2>Nově dokoupené vybavení!</h2>
-           <p>
-               Nakoupili jsme vybavení od těch nejlepších značek! V naší sekci Vybavení najdete to, co vám bude sedět přímo na míru. Od zboží používaného až po zboží úplně nové.
-           </p>
-       </div>
-        <div class="showof">
-            <h2>U nás máme všechny velikosti!</h2>
-            <p>
-            Sportovní vybavení od těch pro velikány až po ty pro nejmenší.
-            Nabízíme větší rozsah velikostí než kdy předtím.
-            </p>
+    <div class="showof" id="s2">
+        <h2>Na velikosti nezáleží</h2>
+        <div class="sh-content">
+            <div class="sh-photo">
+                <img th:src="@{/pictures/skiing-6035709_1920.jpg}" alt="girl-skier" id="img3">
+                <img th:src="@{/pictures/boy-1835416_1920.jpg}" alt="boy-skier" id="img4">
+            </div>
+            <div class="sh-text">
+                <h3>U nás máme všechny velikosti!</h3>
+                Sportovní vybavení od těch pro velikány až po ty pro nejmenší.
+                Nabízíme větší rozsah velikostí než kdy předtím.
+            </div>
         </div>
-
-    </main>
-
-    <footer>
-        Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
-        <br>
-        Kontaktní email: musilal1@uhk.cz
-    </footer>
+    </div>
+</main>
 
 </body>
+<footer>
+    Jedná se o studentský zápočtový projekt pro <a href="https://www.uhk.cz/">univerzitu Hradec Králové</a>
+    <br>
+    Leonard Špaček, Alex Musil, Lukáš Bartoš
+    <br>
+    Kontaktní email: musilal1@uhk.cz
+</footer>
 </html>

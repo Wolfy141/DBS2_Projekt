@@ -1,0 +1,155 @@
+.frst-pan-pujcovna {
+    padding: 20px;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(pictures/yellowjacket.jpg);
+    background-repeat: no-repeat;
+    background-position-y: -180px;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #F7FFF7;
+}
+.borrow-tool-window{
+    min-height: 30vh;
+   margin: 3em 1em 2em 1em;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.borrow-tool-form{
+    background-color: #343434;
+    color: #FFE66D;
+    border-bottom: #FFE66D solid 1px;
+    padding: 0.5em;
+    display:flex;
+    flex-direction: row;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+.borrow-tool-window input {
+    background-color: #FFE66D;
+    color: #343434;
+    border: 1px solid #2F3061;
+    padding: 0.5em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+#item-table-Container{
+    min-width: 400px;
+    background-color: #343434;
+    border: 1px #343434 solid;
+}
+#item-table-Container > table{
+    width: 100%;
+}
+#item-table-Container table{
+    background-color:#F7FFF7;
+    border-collapse: collapse;
+    border: 1px solid #343434;
+}
+th{
+    position: sticky;
+    top: 0;
+    background-color: #2F3061;
+    color:#f7fff7;
+}
+td, th{
+    border: 1px solid #343434;
+    padding: 8px;
+}
+.check-td input{
+  align-self: center;
+}
+
+#resv-fin{
+margin: 0.5em;
+}
+
+/*dialogs*/
+
+#fin-res-affirm{
+    align-items: center;
+}
+
+#btn-affirm:hover{
+    background-color:#f7fff7;
+    color: #6CA6C1;
+
+}
+#btn-affirm{
+    background-color: #6CA6C1;
+    color:#f7fff7;
+    border-color: #6CA6C1;
+}
+#btn-cancel:hover{
+    background-color: #2F3061;
+    color:#f7fff7;
+}
+#btn-cancel{
+    background-color: #f7fff7;
+    color: #2F3061;
+    border-color: #2F3061;
+}
+
+#btn-fin-affirm{
+    background-color: #2F3061;
+    color: #6CA6C1;
+    border-color: #6CA6C1;
+}
+
+
+@media screen and (max-width: 768px) {
+    .frst-pan-pujcovna {
+        height: auto;
+        background-position-y: center;
+        background-attachment: scroll;
+        padding: 1em;
+    }
+
+    .borrow-tool-window {
+        margin: 2em 0.5em;
+        align-items: stretch;
+    }
+
+    .borrow-tool-window form {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+    }
+
+    #item-table-Container {
+        max-height: 250px;
+        overflow-x: auto;
+    }
+
+    #item-table-Container table {
+        font-size: 0.9em;
+        min-width: 600px; /* aby tabulka zůstala čitelná i při scrollu */
+    }
+
+    td, th {
+        padding: 6px;
+    }
+
+    dialog {
+        width: 90%;
+        padding: 1.5rem;
+        font-size: 0.95em;
+    }
+
+    #btn-affirm,
+    #btn-cancel,
+    #btn-fin-affirm {
+        width: 100%;
+        padding: 0.75em;
+        margin: 0.25em 0;
+        font-size: 1em;
+    }
+
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport Registrace</title>
+    <link rel="stylesheet" th:href="@{/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/regLog.css}">
+</head>
+<body>
+<header>
+    <img th:src="@{/pictures/logo.png}" alt="logo">
+    <nav>
+        <ul class="navbar-list">
+            <li><a class="nav-a" th:href="@{/}">INFORMACE</a></li>
+            <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+            <li><a class="nav-a" th:href="@{/contact}">KONTAKT</a></li>
+        </ul>
+    </nav>
+    <div id="bSingd">
+        <a th:href="@{/login}">
+            <button id="Bsing">Přihlásit se</button>
+        </a>
+    </div>
+</header>
+<main id="login_main">
+    <section id="registration">
+        <form method="post" th:action="@{/register}" th:object="${customer}">
+            <h1>Registrace</h1>
+            <input type="hidden" th:field="*{id}">
+            <div class="regDiv">
+                <label for="r-uName">Křestní jméno:</label>
+                <input id="r-uName" name="ruName" type="text" th:field="*{firstName}" placeholder="například Jan">
+            </div>
+            <div class="regDiv">
+                <label for="r-uSName">Příjmení:</label>
+                <input id="r-uSName" name="uName" type="text" th:field="*{lastName}" placeholder="například Novák">
+            </div>
+            <div class="regDiv">
+                <label for="r-ePhone">Telefon(nepovinne):</label>
+                <input id="r-ePhone" name="uName" type="text" th:field="*{phone}" placeholder="123 456 789">
+            </div>
+            <div class="regDiv">
+                <label for="r-eAdress">E-mail:</label>
+                <input id="r-eAdress" name="uName" type="text" th:field="*{email}" placeholder="vaše@adresa.cz">
+            </div>
+            <div class="regDiv">
+                <label for="regPass">Heslo:</label>
+                <input id="regPass" name="uName" type="password" th:field="*{password}"
+                       placeholder="Vaše super-tajné heslo">
+            </div>
+            <br>
+            <input class="sButton" id="r" type="submit" value="Registrovat">
+        </form>
+    </section>
+</main>
+<footer>
+    Jedná se o studentský zápočtový projekt pro univerzitu Hradec Králové
+    <br>
+    Leonard Špaček, Alex Musil, Lukáš Bartoš
+</footer>
+</body>
+</html>

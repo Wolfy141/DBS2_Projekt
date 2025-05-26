@@ -1,0 +1,120 @@
+.frst-panel {
+    padding: 20px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(pictures/snowboard2.jpg);
+    background-repeat: no-repeat;
+    background-position-y: -180px;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #F7FFF7;
+}
+.showof{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2em;
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.showof#s1{
+    border-radius: 20px;
+}
+.showof#s2{
+    background-color: #6CA6C1;
+    color: #f7fff7;
+    border-radius: 10px;
+}
+.sh-content{
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+}
+.sh-photo{
+    display: flex;
+    padding-bottom:30px;
+    padding-top: 30px ;
+    max-width: 50%;
+}
+.sh-text{
+align-content: center;
+    padding: 2em;
+    max-width: 50%;
+}
+#img1, #img2, #img3, #img4{
+    width: 50%;
+    border-radius:15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+#img1{
+position: relative;
+    top: 15%;
+    left: 10%;
+    z-index: 0;
+}
+#img2{
+    position: relative;
+    top: -15%;
+    right:0;
+    z-index:1;
+}
+#img3{
+    position: relative;
+    top: -15%;
+    z-index: 0;
+}
+#img4{
+    position: relative;
+    top: 15%;
+    left: -8%;
+    z-index:1;
+}
+
+@media screen and (max-width: 768px) {
+    .frst-panel{
+        height: auto;
+        background-position-y: center;
+        background-attachment: scroll; /* fixed dělá bordel na mobilech */
+        padding: 10px;
+    }
+
+    .sh-content {
+        flex-direction: column;
+        margin: 20px 10px;
+    }
+
+    .sh-photo,
+    .sh-text {
+        max-width: 100%;
+        padding: 1em 0;
+    }
+    .sh-photo{
+        display: flex;
+        flex-direction: column;
+    }
+    .showof{
+        margin: 1em;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .showof#s1{
+        border-radius: 20px;
+    }
+    .showof#s2{
+        background-color: #6CA6C1;
+        color: #f7fff7;
+        border-radius: 10px;
+    }
+    #img1, #img2, #img3, #img4 {
+        width: 100%;
+        position: static;
+        margin-bottom: 15px;
+    }
+}
