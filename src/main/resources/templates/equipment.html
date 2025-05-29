@@ -83,8 +83,12 @@
                     <td th:text="${e.condition.name}"></td>
                     <td th:text="${e.costPerDay + ' Kč'}"></td>
                     <td sec:authorize="isAuthenticated()">
-                        <form method="post" th:if="${e.available}" th:action="@{/reserve/{id}(id=${e.id})}">
+                        <form sec:authorize="hasRole('ROLE_CUSTOMER')" method="post" th:if="${e.available}" th:action="@{/reserve/{id}(id=${e.id})}">
                             <input type="submit" value="Do rezervace">
+                        </form>
+                        <form sec:authorize="hasRole('ROLE_ADMIN')" method="post" th:if="${e.available}"
+                              th:action="@{/equipment/remove/{id}(id=${e.id})}">
+                            <input type="submit" value="Smazat">
                         </form>
                     </td>
                 </tr>

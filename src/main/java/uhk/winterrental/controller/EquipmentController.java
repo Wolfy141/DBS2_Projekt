@@ -40,4 +40,10 @@ public class EquipmentController {
         return "equipment";
     }
 
+    @PostMapping("/remove/{id}")
+    public String removeEquipment(@PathVariable Long id) {
+        equipmentRepository.deleteById(id);
+        return "redirect:/equipment";
+    }
+
 }
