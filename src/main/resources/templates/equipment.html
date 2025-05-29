@@ -95,7 +95,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="buttTon" sec:authorize="isAuthenticated()">
+        <div class="buttTon" sec:authorize="hasRole('ROLE_CUSTOMER')">
             <a class="a-rez" th:href="@{/reservation}" th:text="'Vytvořit rezervaci'"> </a>
         </div>
     </div>
