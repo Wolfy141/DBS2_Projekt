@@ -48,6 +48,39 @@ label{
 input {
     padding: 5px;
 }
+.item-table-Container{
+    overflow-x: hidden;
+    max-height: 350px;
+    margin: 1em;
+
+}
+th{
+    position: sticky;
+    top: 0;
+    background-color: #2F3061;
+    color: #f7fff7;
+}
+td, th{
+    border: 1px solid #343434;
+    padding: 8px;
+}
+td a{
+    text-decoration: none;
+    color: white;
+    border: #191919 2px solid;
+    padding: 5px;
+    margin: 5px;
+    background-color: #6CA6C1;
+    border-radius: 5px;
+}
+.item-table-Container table{
+    background-color:#F7FFF7;
+    border-collapse: collapse;
+    border: 1px solid #343434;
+}
+.item-table-Container > table{
+    width: 100%;
+}
 
 @media (max-width: 1200px) {
     form{

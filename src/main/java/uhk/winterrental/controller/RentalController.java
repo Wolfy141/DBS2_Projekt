@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import uhk.winterrental.entity.Equipment;
 import uhk.winterrental.entity.Rental;
 import uhk.winterrental.entity.Reservation;
@@ -113,6 +112,19 @@ public class RentalController {
         sessionStatus.setComplete(); // Clear session attributes
         session.removeAttribute("customer_id");
 
+        return "redirect:/admin";
+    }
+
+    @PostMapping("/return-rented/{id}")
+    public String returnRentedEquipment(@PathVariable Long id) {
+        Rental rental = rentalRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid equipment ID"));
+        rental.setReturnDate(LocalDateTime.now());
+        for (Equipment equipment : rental.getEquipment()) {
+            equipment.setAvailable(true);
+            equipmentRepository.save(equipment);
+        }
+        rental.setReturned(true);
+        rentalRepository.save(rental);
         return "redirect:/admin";
     }
 }

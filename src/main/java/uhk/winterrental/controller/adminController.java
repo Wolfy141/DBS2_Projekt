@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import uhk.winterrental.entity.Customer;
 import uhk.winterrental.entity.Equipment;
 import uhk.winterrental.entity.Reservation;
 import uhk.winterrental.repository.*;
@@ -57,6 +58,13 @@ public class adminController {
     public String rentCustomerEquipment(@PathVariable Long id, Model model, HttpSession session) {
         session.setAttribute("customer_id", id);
         return addModelAttributes(model, session);
+    }
+
+    @GetMapping("/return/{id}")
+    public String returnCustomerEquipment(@PathVariable Long id, Model model) {
+        Customer customer = customerRepository.findById(id).orElseThrow();
+        model.addAttribute("rentals", customer.getRentals());
+        return "returnEquipment";
     }
 
     @GetMapping("/category-all")

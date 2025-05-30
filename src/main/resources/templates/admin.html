@@ -79,8 +79,21 @@
             <button type="submit" class="btn btn-primary">Uložit</button>
     </form>
 
-    <div th:each="c : ${customers}">
-        <a style="background-color: white; padding: 10px" th:text="${c.email}" th:href="@{/admin/customer/{id}(id=${c.id})}"></a>
+    <div class = "item-table-Container">
+        <table>
+            <thead>
+            <tr>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${customers}">
+                <td th:text="${c.email}"></td>
+                <td><a th:href="@{/admin/customer/{id}(id=${c.id})}">Vytvořit výpůjčku</a></td>
+                <td><a style="background-color: green" th:href="@{/admin/return/{id}(id=${c.id})}">Vrátit zboží</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>
