@@ -81,6 +81,20 @@ td a{
 .item-table-Container > table{
     width: 100%;
 }
+#user-search-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+#user-search-form input{
+    width: 250px;
+}
+#user-search-form button{
+    background-color: #c1c1c1;
+}
 
 @media (max-width: 1200px) {
     form{
