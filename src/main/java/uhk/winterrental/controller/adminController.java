@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import uhk.winterrental.entity.Equipment;
+import uhk.winterrental.entity.Reservation;
 import uhk.winterrental.repository.*;
 
 import java.util.List;
@@ -55,12 +56,12 @@ public class adminController {
     @GetMapping("/customer/{id}")
     public String rentCustomerEquipment(@PathVariable Long id, Model model, HttpSession session) {
         session.setAttribute("customer_id", id);
-        return addModelAttributes(model);
+        return addModelAttributes(model, session);
     }
 
     @GetMapping("/category-all")
     public String listAll(Model model, HttpSession session) {
-        return addModelAttributes(model);
+        return addModelAttributes(model, session);
     }
 
     @GetMapping("/category/{category_id}")
@@ -71,16 +72,20 @@ public class adminController {
                 .filter(e -> e.getCategory().getId().equals(category_id))
                 .collect(Collectors.toList());
 
+        addModelAttributes(model, session);
         model.addAttribute("equipment", filteredEquipment);
-        model.addAttribute("categories", categoryRepository.findAll());
         return "rentEquipment";
     }
 
-    public String addModelAttributes(Model model) {
+    public String addModelAttributes(Model model, HttpSession session) {
         List<Equipment> allEquipment = equipmentRepository.findAll();
         model.addAttribute("equipment", allEquipment);
         model.addAttribute("categories", categoryRepository.findAll());
-        model.addAttribute("reservations", reservationRepository.findAll());
+        List<Reservation> reservations = reservationRepository.findAll();
+        List<Reservation> customerReservations = reservations.stream()
+                .filter(r -> r.getCustomer().getId().equals(session.getAttribute("customer_id")))
+                .collect(Collectors.toList());
+        model.addAttribute("reservations", customerReservations);
         return "rentEquipment";
     }
 }
