@@ -117,7 +117,7 @@ display: flex;
     }
 body{
     background-color: #F7FFF7;
-    height: 100vh;
+    min-height: 100vh;
 
 }
 dialog{

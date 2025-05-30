@@ -6,7 +6,7 @@ DELETE FROM equipment_category;
 INSERT INTO employee (first_name, last_name, email, phone, password)
 VALUES ('Admin', 'User', 'admin@admin.cz', '+420123456789', '$2a$10$AEFy3qjSiyiBkvKLjivBsu91hpY9R0p2KnGanX3P.zykRAbck67/a');
 INSERT INTO customer (first_name, last_name, email, phone, password)
-VALUES ('User', 'User', 'user@user.cz', '+420123456789', '$2a$10$vBxw9OGRDu.5jjDVz9hOIu.EGbYgcrVapJhzKETT71rAHgJIF1SY.');
+VALUES ('User', 'User', 'user@user.cz', '+420123456789', '$2a$10$C.5B8X2a0S8TMIGH1UPVD.cSf3dBCiC8edRErgidfXGFnDy7x/OWS');
 -- Insert categories with image URLs
 INSERT INTO equipment_category (category_id, category_name, description, image_url) VALUES
 (1, 'Helmy', 'Ochranné helmy pro lyžování a snowboarding', 'helmet.jpg'),

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZimSport</title>
+    <link rel="stylesheet" th:href="@{/VortStyle.css}">
+    <link rel="stylesheet" th:href="@{/pujcStyle.css}">
+
+</head>
+<body>
+<header>
+    <img th:src="@{/pictures/logo.png}" alt="logo">
+    <nav>
+        <ul class="navbar-list">
+            <li><a class="nav-a" th:href="@{/}">INFORMACE</a></li>
+            <li><a class="nav-a" th:href="@{/equipment}">VYBAVENÍ</a></li>
+            <li><a class="nav-a" th:href="@{/contact}">KONTAKT</a></li>
+            <li sec:authorize="hasRole('ROLE_ADMIN')"><a class="nav-a" th:href="@{/admin}">Admin sekce</a></li>
+        </ul>
+    </nav>
+    <div sec:authorize="isAnonymous()" id="bSingd">
+        <a th:href="@{/login}">
+            <button id="Bsing">Přihlásit se</button>
+        </a>
+    </div>
+    <div sec:authorize="isAuthenticated()" id="profile-link">
+        <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+            <button type="submit" class="btn btn-link">Odhlásit se</button>
+        </form>
+        <img alt="profile-icon" th:src="'/pictures/c-ico.svg'" id="per-icon">
+        <a sec:authorize="hasRole('ROLE_CUSTOMER')" th:href="@{'/profile/' + ${#authentication.name}}" th:text="${#authentication.name}"></a>
+    </div>
+</header>
+
+<main>
+    <div class="frst-pan-pujcovna">
+        <h1>Zhotovení výpůjčky</h1>
+    </div>
+    <div class="borrow-tool-window">
+        <div id="item-table-Container">
+            <table class="res-select-table">
+                <thead>
+                <tr>
+                    <th scope="col">Vybavení</th>
+                    <th scope="col">Cena</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="e : ${equipment}">
+                    <td th:text="${e.name}"></td>
+                    <td th:text="${e.getCostPerDay()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <form class="borrow-tool-form" method="post" th:action="@{/finalize-rental}">
+                <label for="date-end">Rezervace do: </label>
+                <input id="date-end" name="dateEnd" type="date" required>
+                <div th:each="e : ${equipment}">
+                    <input type="hidden" name="equipmentIds" th:value="${e.id}">
+                </div>
+                <input type="submit" value="Rezervovat">
+            </form>
+            <form method="post" th:action="@{/cancel-rental}">
+                <div th:each="e : ${equipment}">
+                    <input type="hidden" name="equipmentIds" th:value="${e.id}">
+                </div>
+                <input type="submit" value="Zrušit rezervaci">
+            </form>
+        </div>
+    </div>
+</main>
+<footer>
+    Jedná se o studentský zápočtový projekt pro univerzitu Hradec Králové
+</footer>
+</body>
+</html>

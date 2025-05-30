@@ -58,4 +58,9 @@ public class Rental {
                 .reduce((a, b) -> a + ", " + b)
                 .orElse("");
     }
+    public void addEquipment(Equipment equipment) {
+        equipment.setAvailable(false);
+        this.equipment.add(equipment);
+        equipment.getRentals().add(this);
+    }
 }

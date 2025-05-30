@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZimSport</title>
     <link rel="stylesheet" th:href="@{/VortStyle.css}">
-    <link rel="stylesheet" th:href="@{/vybStyle.css}">
+    <link rel="stylesheet" th:href="@{/rentStyle.css}">
 
 </head>
 <body>
@@ -34,24 +34,14 @@
     </div>
 </header>
 <main>
-    <div class="frst-pan-vyb">
-        <h1>Vybavení</h1>
-        <h3>Prohlédněte si, co si u nás lze půjčit</h3>
-
-    </div>
     <div class="eq-category">
-        <a href="#item-table-Container">
-            <button id="itemButton">
-                Přejít na seznam
-            </button>
-        </a>
         <h2> Kategorie </h2>
         <ul class="category-list">
             <li>
-                <a th:href="@{/equipment}" th:style="|background-image: url(@{/pictures/vybaveni.jpg});|"> Všechno </a>
+                <a th:href="@{/admin/category-all}" th:style="|background-image: url(@{/pictures/vybaveni.jpg});|"> Všechno </a>
             </li>
             <li th:each="c : ${categories}">
-                <a th:href="@{/equipment/category/{id}(id=${c.id})}"
+                <a th:href="@{/admin/category/{id}(id=${c.id})}"
                    th:style="|background-image: url('/pictures/@{${c.imageUrl}}');|"
                    th:text="${c.name}">
                 </a>
@@ -60,10 +50,7 @@
     </div>
     <div id="item-container">
         <h2>Seznam vybavení</h2>
-        <p>Cena je za vypůjčení (ty se řeší na prodejně), rezervace jsou zdarma.</p>
-        <p sec:authorize="isAnonymous()" style="color: red; font-weight: bold">Nejste přihlášen, takže nemůžete rezervovat vybavení.</p>
-
-        <div id="item-table-Container">
+        <div class = "item-table-Container">
             <table>
                 <thead>
                 <tr>
@@ -72,7 +59,7 @@
                     <th scope="col">Kategorie</th>
                     <th scope="col">Kondice</th>
                     <th scope="col">Cena za den</th>
-                    <th sec:authorize="hasRole('ROLE_CUSTOMER')" scope="col">Přidat</th>
+                    <th scope="col">Přidat</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -82,21 +69,47 @@
                     <td th:text="${e.category.name}"></td>
                     <td th:text="${e.condition.name}"></td>
                     <td th:text="${e.costPerDay + ' Kč'}"></td>
-                    <td sec:authorize="isAuthenticated()">
-                        <form sec:authorize="hasRole('ROLE_CUSTOMER')" method="post" th:if="${e.available}" th:action="@{/reserve/{id}(id=${e.id})}">
-                            <input type="submit" value="Do rezervace">
-                        </form>
-                        <form sec:authorize="hasRole('ROLE_ADMIN')" method="post" th:if="${e.available}"
-                              th:action="@{/equipment/remove/{id}(id=${e.id})}">
-                            <input type="submit" value="Smazat">
+                    <td>
+                        <form method="post" th:if="${e.available}" th:action="@{/rent/{id}(id=${e.id})}">
+                            <input type="submit" value="Do výpůjčky">
                         </form>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-        <div class="buttTon" sec:authorize="hasRole('ROLE_CUSTOMER')">
-            <a class="a-rez" th:href="@{/reservation}" th:text="'Vytvořit rezervaci'"> </a>
+        <div class="buttTon">
+            <a class="a-rez" th:href="@{/rental}" th:text="'Vytvořit výpůjčku'"> </a>
+        </div>
+        <h2 style="margin-top: 60px;"> Rezervovane vybaveni uživatelem </h2>
+        <div class = "item-table-Container">
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Datum Vytvoření Rezervace</th>
+                    <th scope="col">Datum Vypršení Rezervace</th>
+                    <th scope="col">Rezervované Vybavení</th>
+                    <th scope="col">Cena Vybavení</th>
+                    <th scope="col">Přidat Vybavení</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="r : ${reservations}">
+                    <td th:text="${r.reservationDate}"></td>
+                    <td th:text="${r.expirationDate}"></td>
+                    <td th:text="${r.getEquipmentNames()}"></td>
+                    <td th:text="${r.getCostOfEquipment()} + ' Kč'"></td>
+                    <td th:if="${r.isValid()}">
+                        <form method="post" th:action="@{/rent-reserved/{id}(id=${r.id})}">
+                            <input type="submit" value="Do výpůjčky">
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="buttTon">
+            <a class="a-rez" th:href="@{/rental}" th:text="'Vytvořit výpůjčku'"> </a>
         </div>
     </div>
 

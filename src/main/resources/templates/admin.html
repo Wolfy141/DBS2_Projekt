@@ -34,10 +34,8 @@
     </div>
 </header>
 
-<!-- Add this inside your admin.html template -->
+<h1 style="margin: 20px">Admin sekce</h1>
 <div class="container">
-    <h1>Admin sekce</h1>
-
     <form th:action="@{/admin/equipment/add}" th:object="${equipment}" method="post" id="newItemForm">
         <h2>Přidat nové vybavení</h2>
         <div id="formContent">
@@ -80,6 +78,10 @@
         </div>
             <button type="submit" class="btn btn-primary">Uložit</button>
     </form>
+
+    <div th:each="c : ${customers}">
+        <a style="background-color: white; padding: 10px" th:text="${c.email}" th:href="@{/admin/customer/{id}(id=${c.id})}"></a>
+    </div>
 </div>
 </body>
 <footer>

@@ -9,8 +9,8 @@ form {
 }
 h1{
     color: #f2f2f2;
-    align-self: center;
-    width: fit-content;
+    text-align: center;
+    width: 99vw;
 }
 h2{
     align-self: center;
@@ -28,15 +28,13 @@ body{
 }
 .container{
     display: flex;
-    flex-direction: column;
-    justify-self:center;
-    padding: 2em;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 100px 20% 200px 20%;
 }
 
 #newItemForm{
     padding: 25px;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
     border-radius: 15px;
     font-size: 1em;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
@@ -49,4 +47,15 @@ label{
 }
 input {
     padding: 5px;
+}
+
+@media (max-width: 1200px) {
+    form{
+        width: 100%;
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5% 0 5%;
+    }
 }

@@ -57,4 +57,7 @@ public class Reservation {
                 .reduce((a, b) -> a + ", " + b)
                 .orElse("");
     }
+    public boolean isValid() {
+        return expirationDate.isAfter(LocalDateTime.now());
+    }
 }
