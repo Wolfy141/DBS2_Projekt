@@ -47,17 +47,22 @@ public class Rental {
     )
     private Set<Equipment> equipment = new HashSet<>();
 
+    // Returns the total cost of all equipment in the rental
     public double getCostOfEquipment() {
         return equipment.stream()
                 .mapToDouble(Equipment::getCostPerDay)
                 .sum();
     }
+
+    // Returns a comma-separated string of equipment names in the rental
     public String getEquipmentNames() {
         return equipment.stream()
                 .map(Equipment::getName)
                 .reduce((a, b) -> a + ", " + b)
                 .orElse("");
     }
+
+    // Adds equipment to the rental and marks it as unavailable
     public void addEquipment(Equipment equipment) {
         equipment.setAvailable(false);
         this.equipment.add(equipment);

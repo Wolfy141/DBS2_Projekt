@@ -17,11 +17,20 @@ public class CustomerService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    /**
+     * Saves a customer to the repository after encoding their password.
+     * @param customer the customer to save
+     */
     public void saveCustomer(Customer customer) {
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerRepository.save(customer);
     }
 
+    /**
+     * Finds a customer by their email address.
+     * @param email the email address to search for
+     * @return the customer with the given email, or null if not found
+     */
     public Customer findCustomerByEmail(String email) {
         for (Customer customer : customerRepository.findAll()) {
             if (customer.getEmail().equals(email)) {
@@ -31,6 +40,10 @@ public class CustomerService {
         return null;
     }
 
+    /**
+     * Saves a customer to the repository, encoding their password.
+     * @param customer the customer to save
+     */
     public void save(Customer customer) {
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerRepository.save(customer);

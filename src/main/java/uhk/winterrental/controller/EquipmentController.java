@@ -20,6 +20,11 @@ public class EquipmentController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    /**
+     * List all equipment and categories.
+     * @param model Model to hold attributes for the view.
+     * @return the equipment page.
+     */
     @GetMapping()
     public String listAll(Model model) {
         model.addAttribute("equipment", equipmentRepository.findAll());
@@ -27,6 +32,12 @@ public class EquipmentController {
         return "equipment";
     }
 
+    /**
+     * List equipment by category.
+     * @param id ID of the category to filter by.
+     * @param model Model to hold attributes for the view.
+     * @return the equipment page filtered by category.
+     */
     @GetMapping("/category/{id}")
     public String listByCategory(@PathVariable Long id, Model model) {
         List<Equipment> allEquipment = equipmentRepository.findAll();
@@ -40,6 +51,11 @@ public class EquipmentController {
         return "equipment";
     }
 
+    /**
+     * removes the equipment by its ID.
+     * @param id ID of the equipment to remove.
+     * @return redirects to the equipment list page.
+     */
     @PostMapping("/remove/{id}")
     public String removeEquipment(@PathVariable Long id) {
         equipmentRepository.deleteById(id);

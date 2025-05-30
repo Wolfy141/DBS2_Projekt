@@ -34,7 +34,12 @@ public class ReservationController {
     @Autowired
     private CustomerService customerService;
 
-
+    /**
+     * Adds equipment to the reservation list.
+     * @param id ID of the equipment to reserve
+     * @param redirectAttributes Redirect attributes to pass messages
+     * @return Redirect to the equipment list page
+     */
     @PostMapping("/reserve/{id}")
     public String addToReservation(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         Equipment equipment = equipmentRepository.findById(id)
@@ -52,6 +57,11 @@ public class ReservationController {
         return "redirect:/equipment";
     }
 
+    /**
+     * Displays the reservation page with reserved equipment.
+     * @param model Model to add attributes for the view
+     * @return View name for reservations or redirect to equipment list if no equipment is reserved
+     */
     @GetMapping("/reservation")
     public String reservationPage(Model model) {
         if(reservedEquipment.isEmpty()) {
@@ -61,6 +71,12 @@ public class ReservationController {
         return "reservations";
     }
 
+    /**
+     * Removes equipment from the reservation list, sets it back to available
+     * @param equipmentIds IDs of the equipment to remove, set available
+     * @param sessionStatus Session status to clear session attributes
+     * @return Redirect to the reservation page
+     */
     @PostMapping("/cancel-reservation")
     public String cancelReservation(@RequestParam("equipmentIds") List<Long> equipmentIds, SessionStatus sessionStatus) {
         sessionStatus.setComplete();
@@ -74,6 +90,14 @@ public class ReservationController {
         return "redirect:/equipment";
     }
 
+    /**
+     * Finalizes the reservation by saving it to the database for the user.
+     * @param dateEnd End date for the reservation
+     * @param equipmentIds List of IDs of the reserved equipment
+     * @param principal Principal object to get the logged-in user's email
+     * @param sessionStatus Session status to clear session attributes
+     * @return Redirects to the user's profile page after finalizing the reservation
+     */
     @PostMapping("/finalize-reservation")
     public String finalizeReservation(
             @RequestParam("dateEnd") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateEnd,

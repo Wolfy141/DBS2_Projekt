@@ -41,22 +41,29 @@ public class Reservation {
     )
     private Set<Equipment> equipment = new HashSet<>();
 
+    // Adds equipment to the reservation, marking it as unavailable
     public void addEquipment(Equipment equipment) {
         equipment.setAvailable(false);
         this.equipment.add(equipment);
         equipment.getReservations().add(this);
     }
+
+    // Returns the total cost of all equipment in the reservation
     public double getCostOfEquipment() {
         return equipment.stream()
                 .mapToDouble(Equipment::getCostPerDay)
                 .sum();
     }
+
+    // Returns a comma-separated string of equipment names in the reservation
     public String getEquipmentNames() {
         return equipment.stream()
                 .map(Equipment::getName)
                 .reduce((a, b) -> a + ", " + b)
                 .orElse("");
     }
+
+    // Checks if the reservation is still valid based on the expiration date
     public boolean isValid() {
         return expirationDate.isAfter(LocalDateTime.now());
     }

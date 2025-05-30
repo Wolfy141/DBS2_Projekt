@@ -6,7 +6,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import uhk.winterrental.entity.Customer;
 import uhk.winterrental.entity.Employee;
@@ -25,6 +24,12 @@ public class UserService implements UserDetailsService {
     private final EmployeeRepository employeeRepository;
     private final CustomerRepository customerRepository;
 
+    /**
+     * Loads user details by email, checking first in the employee repository
+     * @param email the email address of the user to load
+     * @return UserDetails object containing user information
+     * @throws UsernameNotFoundException if no user is found with the given email
+     */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         // Check employee repository first
@@ -42,6 +47,11 @@ public class UserService implements UserDetailsService {
         throw new UsernameNotFoundException("User not found with email: " + email);
     }
 
+    /**
+     * Creates UserDetails object from a User entity.
+     * @param user the user entity (Employee or Customer)
+     * @return UserDetails object with user's email, password, and role
+     */
     private UserDetails createUserDetails(User user) {
         String role = (user instanceof Employee) ? "ROLE_ADMIN" : "ROLE_CUSTOMER";
         return new org.springframework.security.core.userdetails.User(
@@ -51,6 +61,7 @@ public class UserService implements UserDetailsService {
         );
     }
 
+    // Returns authority of the user based on their type
     private Collection<? extends GrantedAuthority> getAuthorities(User user) {
         String role = (user instanceof Employee) ? "ROLE_ADMIN" : "ROLE_CUSTOMER";
         return Collections.singletonList(new SimpleGrantedAuthority(role));

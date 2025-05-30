@@ -38,6 +38,12 @@ public class RentalController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    /**
+     * Rents reserved equipment.
+     * @param id ID of the reservation
+     * @param session HTTP session to retrieve customer ID
+     * @return redirects to the customer's page after adding the equipment to the rental
+     */
     @PostMapping("/rent-reserved/{id}")
     public String rentReservedEquipment(@PathVariable Long id, HttpSession session) {
         Reservation reservation = reservationRepository.findById(id)
@@ -51,6 +57,12 @@ public class RentalController {
         return "redirect:/admin/customer/" + session.getAttribute("customer_id");
     }
 
+    /**
+     * Adds unreserved equipment to the rental.
+     * @param id ID of the equipment to be rented
+     * @param session HTTP session to retrieve customer ID
+     * @return redirects to the customer's page after adding the equipment to the rental
+     */
     @PostMapping("/rent/{id}")
     public String addToRental(@PathVariable Long id, HttpSession session) {
         Equipment equipment = equipmentRepository.findById(id)
@@ -63,6 +75,12 @@ public class RentalController {
         return "redirect:/admin/customer/" + session.getAttribute("customer_id");
     }
 
+    /**
+     * Displays the rental page with all rented equipment.
+     * @param model Model to add attributes for the view
+     * @param session HTTP session to check if there are rented equipment
+     * @return "rental" view if there are rented equipment, otherwise redirects to the customer's page
+     */
     @GetMapping("/rental")
     public String rentalPage(Model model, HttpSession session) {
         if(rentedEquipment.isEmpty()) {
@@ -72,6 +90,13 @@ public class RentalController {
         return "rental";
     }
 
+    /**
+     * Cancels the rental of all rented equipment.
+     * @param equipmentIds List of IDs of the equipment to be canceled
+     * @param sessionStatus Session status to clear session attributes
+     * @param session HTTP session to retrieve customer ID
+     * @return redirects to the customer's page after canceling the rental
+     */
     @PostMapping("/cancel-rental")
     public String cancelRental(@RequestParam("equipmentIds") List<Long> equipmentIds, SessionStatus sessionStatus, HttpSession session) {
         sessionStatus.setComplete();
@@ -85,6 +110,14 @@ public class RentalController {
         return "redirect:/admin/customer/" + session.getAttribute("customer_id");
     }
 
+    /**
+     * Finalizes the rental by creating a new Rental entity and saving it to the database.
+     * @param session HTTP session to retrieve customer ID
+     * @param dateEnd End date of the rental
+     * @param equipmentIds List of IDs of the equipment to be rented
+     * @param sessionStatus Session status to clear session attributes
+     * @return redirects to the admin page after finalizing the rental
+     */
     @PostMapping("/finalize-rental")
     public String finalizeRental(
             HttpSession session,
@@ -115,6 +148,11 @@ public class RentalController {
         return "redirect:/admin";
     }
 
+    /**
+     * Returns rented equipment by updating the rental status and making the equipment available again.
+     * @param id ID of the rental to be returned
+     * @return redirects to the admin page after returning the equipment
+     */
     @PostMapping("/return-rented/{id}")
     public String returnRentedEquipment(@PathVariable Long id) {
         Rental rental = rentalRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid equipment ID"));

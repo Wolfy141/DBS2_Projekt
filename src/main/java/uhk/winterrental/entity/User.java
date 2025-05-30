@@ -13,6 +13,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+    // Superclass for all user types (e.g., Customer, employee)
+
     @Column(nullable = false, length = 32, unique = true)
     private String email;
 

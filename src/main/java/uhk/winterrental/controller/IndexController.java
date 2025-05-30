@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class IndexController {
+    // Class redirects requests to their respective HTML pages.
 
     @GetMapping
     public String index() {

@@ -32,6 +32,10 @@ public class adminController {
     @Autowired
     private ReservationRepository reservationRepository;
 
+    /**
+     * Admin controller for managing equipment, categories, and customers.
+     * Provides endpoints for adding equipment, listing categories, and handling rentals.
+     */
     @GetMapping
     public String admin(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
@@ -41,6 +45,12 @@ public class adminController {
         return "admin";
     }
 
+    /**
+     * Endpoint to add new equipment.
+     * @param equipment The equipment to be added.
+     * @param redirectAttributes Redirect attributes for flash messages.
+     * @return Redirects to the admin page with success or error message.
+     */
     @PostMapping("/equipment/add")
     public String addEquipment(@ModelAttribute Equipment equipment,
                                RedirectAttributes redirectAttributes) {
@@ -54,12 +64,23 @@ public class adminController {
         return "redirect:/admin";
     }
 
+    /**
+     * redirects to the rent equipment page for a specific customer.
+     * @param id The ID of the equipment to be deleted.
+     * @param model Model to add attributes for the view.
+     * @param session Http session
+     */
     @GetMapping("/customer/{id}")
     public String rentCustomerEquipment(@PathVariable Long id, Model model, HttpSession session) {
         session.setAttribute("customer_id", id);
         return addModelAttributes(model, session);
     }
 
+    /**
+     * redirects to the return equipment page for a specific customer.
+     * @param id The ID of the customer whose equipment is being returned.
+     * @param model Model to add attributes for the view.
+     */
     @GetMapping("/return/{id}")
     public String returnCustomerEquipment(@PathVariable Long id, Model model) {
         Customer customer = customerRepository.findById(id).orElseThrow();
@@ -67,11 +88,12 @@ public class adminController {
         return "returnEquipment";
     }
 
+    // Lists all equipment in the rent equipment page
     @GetMapping("/category-all")
     public String listAll(Model model, HttpSession session) {
         return addModelAttributes(model, session);
     }
-
+    // Lists equipment based on category in the rent equipment page
     @GetMapping("/category/{category_id}")
     public String listByCategory(@PathVariable Long category_id, Model model, HttpSession session) {
         List<Equipment> allEquipment = equipmentRepository.findAll();
@@ -85,6 +107,7 @@ public class adminController {
         return "rentEquipment";
     }
 
+    // Adds model attributes for the rent equipment page.
     public String addModelAttributes(Model model, HttpSession session) {
         List<Equipment> allEquipment = equipmentRepository.findAll();
         model.addAttribute("equipment", allEquipment);
