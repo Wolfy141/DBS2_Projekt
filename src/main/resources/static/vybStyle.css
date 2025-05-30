@@ -128,9 +128,8 @@ input {
 .buttTon{
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     flex-direction: column;
-
     width: 50%;
 }
 #item-table-Container > table{
